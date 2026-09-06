@@ -12,6 +12,7 @@ Anything heavier runs in CI (ADR-0007).
 | `inspect_mesh.py` | STL print-fault report and repair |
 | `relief_from_heightmap.py` | Heightmap to watertight relief panel |
 | `depth_map.py` | Reference image to depth map (needs torch; CI only) |
+| `meshy.py` | Pull models from the Meshy API. **Written blind** — never run against the real API; see HANDOFF.md |
 
 ## Rules
 
@@ -23,6 +24,9 @@ Anything heavier runs in CI (ADR-0007).
 - **Geometry needs a test.** Expected values are derived by hand — a 10 mm cube
   encloses 1000 mm³ because of arithmetic, not because the script agrees with
   itself. Add fixtures to `tests/test_mesh_tools.sh`.
+- **Credentials come from the environment, never an argument.** Arguments land
+  in shell history, process lists and CI logs. `meshy.py` reads `MESHY_API_KEY`
+  and refuses to start without it.
 - **Exit quietly on `BrokenPipeError`** — these get piped into `head`.
 - **Never clobber hand-written prose.** `setlib.write_notes` creates a notes
   file if absent and otherwise only refreshes two known lines.

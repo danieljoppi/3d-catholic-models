@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "scripts/**"
+      - ".gitignore"
       - "tests/**"
       - "collections/**/metadata.json"
       - ".github/workflows/checks.yml"
@@ -26,6 +27,9 @@ jobs:
 
       - name: Scripts compile
         run: python -m compileall -q scripts
+
+      - name: No credentials in tracked files
+        run: python tests/check_no_secrets.py
 
       - name: Metadata is valid JSON and matches its folders
         run: python tests/check_metadata.py
