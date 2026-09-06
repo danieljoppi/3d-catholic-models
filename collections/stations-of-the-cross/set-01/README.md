@@ -19,7 +19,7 @@ Carved and polychromed wood relief panels in Gothic tracery frames — dark oak,
 cream limestone, a crimson robe for Christ, Marian blue, ochre, silver armour,
 gilt numerals. Portrait 3:4.
 
-The set is not uniform, and the difference matters before any modelling starts:
+The panels are not uniform:
 
 | Panels | Treatment |
 |---|---|
@@ -27,9 +27,13 @@ The set is not uniform, and the difference matters before any modelling starts:
 | XI–XIV | Deeper, more crowded high relief; darker red-brown wood; plainer ogee arch; open landscape instead of the arcade |
 | XV | Tracery frame again, set inside the rock tomb |
 
-Decide early whether the models follow each panel as carved or normalise the
-whole set to one relief depth and one frame. A Via Crucis reads as a series on
-a wall, so the frames especially want to match.
+This matters less for the models than it looks. Model the frame once as a
+reusable component and drop all 15 scenes into it, and pick one relief depth
+for the whole set — neither is inherited from the reference image.
+
+The backgrounds are worth leaving alone. The setting shifts at XI because the
+narrative does, leaving the praetorium for Golgotha, and carved sets have always
+let the scenery follow the story.
 
 ## Re-importing
 

@@ -224,7 +224,7 @@
       "Panels I-X: shallow relief on a cream limestone arcade, lighter oak frame with pierced tracery.",
       "Panels XI-XIV: deeper, more crowded high relief, darker red-brown wood, plainer ogee arch, open landscape instead of the arcade.",
       "Panel XV: returns to the tracery frame, set in a rock tomb interior.",
-      "The relief depth and frame change at XI is the main consistency decision to make before modelling."
+      "The relief depth and frame change at XI is a property of the reference art, not a constraint on the models: model one frame component for all 15 and choose a single relief depth. The background shift at XI tracks the narrative moving from the praetorium to Golgotha and is worth keeping."
     ]
   }
 }

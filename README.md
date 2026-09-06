@@ -22,11 +22,11 @@ carved polychromed wood reliefs in Gothic tracery frames, 896×1200 JPEG.
 Every station folder has its image, its composition notes, and its checklist.
 No models sculpted yet — that is the next step.
 
-One thing to settle first: the set is not stylistically uniform. Panels I–X are
-shallow reliefs on a cream limestone arcade; XI–XIV are deeper, more crowded,
-in a darker wood with a plainer arch. The
-[set README](collections/stations-of-the-cross/set-01/README.md#style) has the
-detail and the decision it implies.
+The panels are not stylistically uniform — I–X are shallow reliefs on a cream
+limestone arcade, XI–XIV are deeper and darker with a plainer arch — but the
+frame and the relief depth are modelling choices, not inherited from the
+reference. See the
+[set README](collections/stations-of-the-cross/set-01/README.md#style).
 
 ## How a piece progresses
 
