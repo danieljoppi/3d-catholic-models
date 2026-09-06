@@ -2,3 +2,6 @@
 # new_piece.py and import_images.py use the standard library alone.
 numpy>=1.24
 Pillow>=10.0
+
+# scripts/depth_map.py additionally needs torch + transformers.
+# Heavy; installed in CI rather than kept here. See .github/workflows/relief.yml.

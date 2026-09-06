@@ -34,25 +34,47 @@ import sys
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageFilter
+from numpy.lib.stride_tricks import sliding_window_view
+from PIL import Image
+
+
+def gaussian_blur(a: np.ndarray, sigma: float) -> np.ndarray:
+    """Separable gaussian blur. PIL cannot filter 32-bit float images."""
+    if sigma <= 0:
+        return a
+    radius = max(1, int(round(3 * sigma)))
+    x = np.arange(-radius, radius + 1, dtype=np.float64)
+    k = np.exp(-(x ** 2) / (2 * sigma * sigma))
+    k /= k.sum()
+    for axis in (1, 0):
+        pad_width = [(0, 0), (0, 0)]
+        pad_width[axis] = (radius, radius)
+        padded = np.pad(a, pad_width, mode="edge")
+        windows = sliding_window_view(padded, len(k), axis=axis)
+        a = np.tensordot(windows, k, axes=([-1], [0]))
+    return a
 
 
 def load_heightmap(path: Path, resolution: int, blur: float, gamma: float, invert: bool) -> np.ndarray:
-    img = Image.open(path).convert("L")
+    img = Image.open(path)
+    # "F" keeps 16-bit depth maps intact; "L" would crush them to 256 levels.
+    if img.mode not in ("L", "F", "I", "I;16", "I;16B", "I;16L"):
+        img = img.convert("L")
+    img = img.convert("F")
+
     w, h = img.size
     nx = max(16, resolution)
     ny = max(16, round(nx * h / w))
     img = img.resize((nx, ny), Image.LANCZOS)
-    if blur > 0:
-        img = img.filter(ImageFilter.GaussianBlur(blur))
 
-    a = np.asarray(img, dtype=np.float64) / 255.0
+    a = np.asarray(img, dtype=np.float64)
     if invert:
-        a = 1.0 - a
+        a = -a
     span = a.max() - a.min()
     a = (a - a.min()) / span if span > 1e-9 else np.zeros_like(a)
+    a = gaussian_blur(a, blur)
     if gamma != 1.0:
-        a = a ** gamma
+        a = np.clip(a, 0.0, 1.0) ** gamma
     return a
 
 
