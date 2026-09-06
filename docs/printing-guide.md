@@ -39,6 +39,7 @@ usually a print orientation tilted to keep supports off the face.
 
 ## Rights
 
-Devotional art is not automatically public domain. Record the artist and the
-licence of every source image in the set's `metadata.json` before publishing
-or sharing a derived model.
+Devotional art is not automatically public domain. Record the origin of every
+source image in the set's `metadata.json` before publishing or sharing a
+derived model — the artist and licence when it comes from someone else's work,
+the generator when it is AI-generated.

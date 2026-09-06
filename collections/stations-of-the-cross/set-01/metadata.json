@@ -5,17 +5,26 @@
   "description": "First Via Crucis series: 14 traditional stations plus the Resurrection, as carved and polychromed wood relief panels in Gothic tracery frames, each numbered in gilt Roman numerals.",
   "item_count": 15,
   "source": {
-    "type": "google-photos-album",
-    "url": "https://photos.app.goo.gl/EdYMHR8VvGUWcRZD9",
+    "type": "ai-generated",
+    "generator": "Google Gemini Pro",
+    "generated_by": "Daniel Joppi (repository owner)",
+    "album_url": "https://photos.app.goo.gl/EdYMHR8VvGUWcRZD9",
     "downloaded": true,
     "imported_via": "uploaded directly to the session; album host unreachable from the build environment",
     "image_size": "896x1200",
     "note": "Station numbers were read from the gilt Roman numeral on each panel."
   },
   "rights": {
-    "artwork_author": "TODO",
-    "licence": "TODO",
-    "notes": "Supplied by the repository owner. Record origin and licence before publishing derived models."
+    "artwork_author": "Daniel Joppi, generated with Google Gemini Pro",
+    "licence": "TBD by the repository owner",
+    "third_party_source": false,
+    "notes": [
+      "No third-party artist's rights are involved — the panels were generated, not photographed or copied.",
+      "Google's Gemini terms assign ownership of generated output to the user.",
+      "Purely AI-generated images are generally not eligible for copyright in the US and several other jurisdictions; the 3D models sculpted from them are original work and are protectable in the normal way.",
+      "Gemini output carries SynthID watermarking, which survives in these JPEGs.",
+      "Pick a licence for the derived models before distributing them; CC BY-SA or CC BY-NC are the usual choices for devotional work meant to be shared with parishes."
+    ]
   },
   "stations": [
     {
