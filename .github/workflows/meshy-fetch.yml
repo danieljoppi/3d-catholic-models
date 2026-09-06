@@ -1,0 +1,99 @@
+name: Fetch from Meshy
+
+# Pulls finished models out of the Meshy account into inbox/, then files them
+# with the normal ingest. Runs here rather than locally because the API key
+# lives in a repository secret and never touches a working copy.
+#
+# Setup: Settings -> Secrets and variables -> Actions -> New repository secret
+#        Name: MESHY_API_KEY
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "list (show tasks only), or fetch (download them)"
+        type: choice
+        options: [list, probe, fetch]
+        default: list
+      collection:
+        description: "Which inbox subfolder to place models in"
+        type: choice
+        options: [statues, nativity, stations]
+        default: statues
+      format:
+        description: "Preferred model format"
+        type: choice
+        options: [stl, glb, obj, fbx]
+        default: stl
+      ingest:
+        description: "Also run the ingest and commit the result"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  meshy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Check the secret is configured
+        env:
+          MESHY_API_KEY: ${{ secrets.MESHY_API_KEY }}
+        run: |
+          if [ -z "$MESHY_API_KEY" ]; then
+            echo "::error::MESHY_API_KEY is not set. Add it under Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+          echo "Secret is present (${#MESHY_API_KEY} characters)."
+
+      - name: List tasks
+        env:
+          MESHY_API_KEY: ${{ secrets.MESHY_API_KEY }}
+        run: python scripts/meshy.py list
+
+      - name: Probe the API shape
+        if: inputs.mode == 'probe'
+        env:
+          MESHY_API_KEY: ${{ secrets.MESHY_API_KEY }}
+        run: python scripts/meshy.py probe
+
+      - name: Fetch models
+        if: inputs.mode == 'fetch'
+        env:
+          MESHY_API_KEY: ${{ secrets.MESHY_API_KEY }}
+        run: |
+          python scripts/meshy.py fetch-all \
+            --collection "${{ inputs.collection }}" \
+            --format "${{ inputs.format }}"
+
+      - name: Install ingest dependencies
+        if: inputs.mode == 'fetch' && inputs.ingest
+        run: pip install numpy pillow
+
+      - name: Ingest and inspect
+        if: inputs.mode == 'fetch' && inputs.ingest
+        run: python scripts/ingest.py --create
+
+      - name: Commit
+        if: inputs.mode == 'fetch'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing new from Meshy."
+          else
+            git commit -m "Fetch models from Meshy" \
+                       -m "Pulled by .github/workflows/meshy-fetch.yml and filed by scripts/ingest.py."
+            git push
+          fi

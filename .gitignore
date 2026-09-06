@@ -20,3 +20,8 @@ _inbox/*.tar.gz
 
 __pycache__/
 *.pyc
+
+# Local secrets — never commit
+.env
+.env.*
+*.key
