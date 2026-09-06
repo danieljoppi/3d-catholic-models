@@ -1,0 +1,4 @@
+# Only scripts/relief_from_heightmap.py needs these.
+# new_piece.py and import_images.py use the standard library alone.
+numpy>=1.24
+Pillow>=10.0

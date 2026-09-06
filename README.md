@@ -9,8 +9,8 @@ personal devotion, and pieces small parishes can print themselves.
 |---|---|
 | [`collections/stations-of-the-cross/set-01/`](collections/stations-of-the-cross/set-01/) | First Via Crucis series — 15 carved relief panels, all imported |
 | [`collections/statues/`](collections/statues/) | Standalone figures — structure ready, no pieces yet |
-| [`collections/nativity/`](collections/nativity/) | Presépio figures — awaiting the first set |
-| [`docs/`](docs/) | Folder structure, naming conventions, printing guide |
+| [`collections/nativity/`](collections/nativity/) | Presépio figures — structure ready, no pieces yet |
+| [`docs/`](docs/) | [Making the models](docs/making-the-models.md), folder structure, naming, printing |
 | [`scripts/`](scripts/) | Import and scaffolding tooling |
 
 ## Status of Set 01
@@ -60,9 +60,18 @@ full layout and the reasoning.
 |---|---|
 | `scripts/new_piece.py <set> "<name>"` | Create a piece — folder tree, notes, metadata entry |
 | `scripts/import_images.py <set>` | File images from `_inbox/` into their items |
+| `scripts/relief_from_heightmap.py <img>` | Turn a depth map into a watertight relief panel STL |
 
-Both take `--dry-run`. `import_images.py` takes `--move` to empty the inbox and
-`--create` to add pieces it does not recognise.
+The first two take `--dry-run`; `import_images.py` takes `--move` to empty the
+inbox and `--create` to add pieces it does not recognise. The mesher needs
+`numpy` and `Pillow`.
+
+## Making the models
+
+The Stations are relief panels and the statues are figures in the round; those
+are different problems and the relief one is much more tractable. See
+[`docs/making-the-models.md`](docs/making-the-models.md) for both pipelines and
+the suggested first move.
 
 ## Large files
 
