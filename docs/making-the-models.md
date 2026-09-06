@@ -53,6 +53,18 @@ Painting corrections over the depth map in any image editor — dodge to raise,
 burn to lower — is faster than fixing the mesh afterwards and is how a careful
 relief actually gets finished.
 
+### Running the whole thing in CI
+
+Depth estimation needs torch, which is too heavy to keep in the everyday repo
+tooling, so `.github/workflows/relief.yml` runs the pipeline on a GitHub
+runner instead. Dispatch it with a station and the panel dimensions; it
+estimates the depth map, meshes it, meshes a luminance version alongside for
+comparison, uploads both STLs as artifacts, and commits the depth map back to
+`model/source/`.
+
+That gives you a first pass without installing anything. The hand-correction
+step below still applies to what comes out.
+
 ### 3. Build the mesh
 
 ```sh

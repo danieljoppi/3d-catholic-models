@@ -138,6 +138,22 @@ def build_relief(height: np.ndarray, width_mm: float, depth_mm: float, base_mm: 
     return vertices, np.array(faces, dtype=np.int64)
 
 
+def write_preview(path: Path, height: np.ndarray, width_mm: float, depth_mm: float, base_mm: float) -> None:
+    """Shade the relief under a raking light — what the panel will look like."""
+    nx = height.shape[1]
+    pitch = width_mm / (nx - 1)
+    z = base_mm + height * depth_mm
+
+    normals = np.dstack([-np.gradient(z, pitch, axis=1), np.gradient(z, pitch, axis=0), np.ones_like(z)])
+    normals /= np.linalg.norm(normals, axis=2, keepdims=True)
+
+    light = np.array([-0.45, 0.55, 0.70])
+    light /= np.linalg.norm(light)
+    shade = np.clip((normals * light).sum(axis=2), 0.0, 1.0)
+    image = np.clip(0.18 + 0.82 * shade ** 0.9, 0.0, 1.0)
+    Image.fromarray((image * 255).astype(np.uint8)).save(path)
+
+
 def signed_volume(vertices: np.ndarray, faces: np.ndarray) -> float:
     """Volume in mm^3. Negative means the normals face inward."""
     tri = vertices[faces]
@@ -182,6 +198,8 @@ def main() -> int:
     p.add_argument("--blur", type=float, default=1.0, help="gaussian blur in pixels before displacing")
     p.add_argument("--gamma", type=float, default=1.0, help=">1 deepens shadows, <1 lifts them")
     p.add_argument("--invert", action="store_true", help="heightmap has near=black")
+    p.add_argument("--preview", type=Path,
+                   help="also write a shaded PNG preview of the relief")
     p.add_argument("--luminance", action="store_true",
                    help="acknowledge the input is a photo, not a depth map (preview only)")
     args = p.parse_args()
@@ -206,6 +224,10 @@ def main() -> int:
     args.out.parent.mkdir(parents=True, exist_ok=True)
     write_stl(args.out, vertices, faces)
 
+    if args.preview:
+        args.preview.parent.mkdir(parents=True, exist_ok=True)
+        write_preview(args.preview, height, args.width_mm, args.depth_mm, args.base_mm)
+
     ny, nx = height.shape
     size = args.out.stat().st_size / 1e6
     print(f"{args.out}")
@@ -216,6 +238,8 @@ def main() -> int:
     print(f"  volume      {volume / 1000:.1f} cm3")
     print(f"  manifold    yes (closed, outward normals)")
     print(f"  file        {size:.1f} MB")
+    if args.preview:
+        print(f"  preview     {args.preview}")
     if args.luminance:
         print("\n  NOTE: built from luminance, not depth — tone and depth disagree wherever\n"
               "  a dark object sits in front of a light one. Preview only.")
