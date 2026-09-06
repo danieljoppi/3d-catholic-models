@@ -1,0 +1,18 @@
+# Treat model and image formats as binary — never try to diff or merge them.
+*.stl   binary
+*.3mf   binary
+*.obj   binary
+*.fbx   binary
+*.blend binary
+*.zpr   binary
+*.ztl   binary
+*.jpg   binary
+*.jpeg  binary
+*.png   binary
+*.webp  binary
+*.heic  binary
+*.tif   binary
+*.tiff  binary
+
+# If this repository grows heavy, switch the lines above to Git LFS:
+#   git lfs track "*.stl" "*.3mf" "*.blend" "*.jpg" "*.png"

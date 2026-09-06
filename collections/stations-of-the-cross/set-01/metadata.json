@@ -1,0 +1,200 @@
+{
+  "collection": "stations-of-the-cross",
+  "set": "set-01",
+  "title": "Stations of the Cross — Set 01",
+  "description": "First set of Via Crucis reference images, 14 traditional stations plus the Resurrection.",
+  "item_count": 15,
+  "source": {
+    "type": "google-photos-album",
+    "url": "https://photos.app.goo.gl/EdYMHR8VvGUWcRZD9",
+    "downloaded": false,
+    "note": "Images not yet imported. Run scripts/import_stations.py once the album is downloaded into _inbox/."
+  },
+  "rights": {
+    "artwork_author": "TODO",
+    "licence": "TODO",
+    "notes": "Record the origin and licence of the source artwork before publishing any derived model."
+  },
+  "stations": [
+    {
+      "number": 1,
+      "id": "01-jesus-is-condemned-to-death",
+      "title": {
+        "en": "Jesus is condemned to death",
+        "pt-BR": "Jesus é condenado à morte",
+        "la": "Iesus morti damnatur"
+      },
+      "scripture": "Mt 27:22-26",
+      "reference_image": null,
+      "status": "planned"
+    },
+    {
+      "number": 2,
+      "id": "02-jesus-carries-his-cross",
+      "title": {
+        "en": "Jesus carries His cross",
+        "pt-BR": "Jesus carrega a cruz",
+        "la": "Iesus crucem baiulat"
+      },
+      "scripture": "Jn 19:17",
+      "reference_image": null,
+      "status": "planned"
+    },
+    {
+      "number": 3,
+      "id": "03-jesus-falls-the-first-time",
+      "title": {
+        "en": "Jesus falls the first time",
+        "pt-BR": "Jesus cai pela primeira vez",
+        "la": "Iesus primum cadit"
+      },
+      "scripture": "Is 53:4-6",
+      "reference_image": null,
+      "status": "planned"
+    },
+    {
+      "number": 4,
+      "id": "04-jesus-meets-his-mother",
+      "title": {
+        "en": "Jesus meets His mother",
+        "pt-BR": "Jesus encontra sua Mãe",
+        "la": "Iesus Matri suae occurrit"
+      },
+      "scripture": "Lk 2:34-35",
+      "reference_image": null,
+      "status": "planned"
+    },
+    {
+      "number": 5,
+      "id": "05-simon-of-cyrene-helps-jesus",
+      "title": {
+        "en": "Simon of Cyrene helps Jesus carry the cross",
+        "pt-BR": "Simão Cireneu ajuda Jesus a carregar a cruz",
+        "la": "Simon Cyrenaeus Iesum adiuvat"
+      },
+      "scripture": "Mk 15:21",
+      "reference_image": null,
+      "status": "planned"
+    },
+    {
+      "number": 6,
+      "id": "06-veronica-wipes-the-face-of-jesus",
+      "title": {
+        "en": "Veronica wipes the face of Jesus",
+        "pt-BR": "Verônica enxuga o rosto de Jesus",
+        "la": "Veronica faciem Iesu tergit"
+      },
+      "scripture": "Is 53:2-3",
+      "reference_image": null,
+      "status": "planned"
+    },
+    {
+      "number": 7,
+      "id": "07-jesus-falls-the-second-time",
+      "title": {
+        "en": "Jesus falls the second time",
+        "pt-BR": "Jesus cai pela segunda vez",
+        "la": "Iesus iterum cadit"
+      },
+      "scripture": "Lam 3:1-2",
+      "reference_image": null,
+      "status": "planned"
+    },
+    {
+      "number": 8,
+      "id": "08-jesus-meets-the-women-of-jerusalem",
+      "title": {
+        "en": "Jesus meets the women of Jerusalem",
+        "pt-BR": "Jesus consola as mulheres de Jerusalém",
+        "la": "Iesus mulieres Ierusalem consolatur"
+      },
+      "scripture": "Lk 23:27-28",
+      "reference_image": null,
+      "status": "planned"
+    },
+    {
+      "number": 9,
+      "id": "09-jesus-falls-the-third-time",
+      "title": {
+        "en": "Jesus falls the third time",
+        "pt-BR": "Jesus cai pela terceira vez",
+        "la": "Iesus tertium cadit"
+      },
+      "scripture": "Lam 3:27-30",
+      "reference_image": null,
+      "status": "planned"
+    },
+    {
+      "number": 10,
+      "id": "10-jesus-is-stripped-of-his-garments",
+      "title": {
+        "en": "Jesus is stripped of His garments",
+        "pt-BR": "Jesus é despojado das vestes",
+        "la": "Iesus vestibus spoliatur"
+      },
+      "scripture": "Jn 19:23-24",
+      "reference_image": null,
+      "status": "planned"
+    },
+    {
+      "number": 11,
+      "id": "11-jesus-is-nailed-to-the-cross",
+      "title": {
+        "en": "Jesus is nailed to the cross",
+        "pt-BR": "Jesus é pregado na cruz",
+        "la": "Iesus cruci affigitur"
+      },
+      "scripture": "Lk 23:33-34",
+      "reference_image": null,
+      "status": "planned"
+    },
+    {
+      "number": 12,
+      "id": "12-jesus-dies-on-the-cross",
+      "title": {
+        "en": "Jesus dies on the cross",
+        "pt-BR": "Jesus morre na cruz",
+        "la": "Iesus in cruce moritur"
+      },
+      "scripture": "Lk 23:44-46",
+      "reference_image": null,
+      "status": "planned"
+    },
+    {
+      "number": 13,
+      "id": "13-jesus-is-taken-down-from-the-cross",
+      "title": {
+        "en": "Jesus is taken down from the cross",
+        "pt-BR": "Jesus é descido da cruz",
+        "la": "Iesus de cruce deponitur"
+      },
+      "scripture": "Jn 19:38",
+      "reference_image": null,
+      "status": "planned"
+    },
+    {
+      "number": 14,
+      "id": "14-jesus-is-laid-in-the-tomb",
+      "title": {
+        "en": "Jesus is laid in the tomb",
+        "pt-BR": "Jesus é sepultado",
+        "la": "Iesus in sepulcro ponitur"
+      },
+      "scripture": "Mt 27:59-60",
+      "reference_image": null,
+      "status": "planned"
+    },
+    {
+      "number": 15,
+      "id": "15-the-resurrection",
+      "title": {
+        "en": "The Resurrection of the Lord",
+        "pt-BR": "A Ressurreição do Senhor",
+        "la": "Resurrectio Domini"
+      },
+      "scripture": "Mt 28:5-6",
+      "reference_image": null,
+      "status": "planned"
+    }
+  ]
+}

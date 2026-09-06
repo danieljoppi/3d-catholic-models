@@ -1,0 +1,22 @@
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Application scratch
+*.blend[0-9]
+*.blend[0-9][0-9]
+*~
+.~lock.*
+
+# Slicer output — regenerated from model/export/, not worth versioning
+*.gcode
+*.bgcode
+*.ctb
+
+# Archives dropped while importing
+_inbox/*.zip
+_inbox/*.tar.gz
+
+__pycache__/
+*.pyc
