@@ -109,6 +109,28 @@ practised.
 then sculpt the face, the hands, and the attributes by hand. It removes the
 tedious blocking-out and keeps human judgement where it counts.
 
+### Checking what comes back
+
+Reconstruction output is usually watertight-ish and rarely print-ready. Run it
+through the inspector before anything else:
+
+```sh
+scripts/inspect_mesh.py figure.stl
+scripts/inspect_mesh.py figure.stl --fix clean.stl --fill-holes --drop-shells
+```
+
+It reports triangle count, bounding box, degenerate and duplicate faces, holes,
+non-manifold edges, floating shells, and whether the normals face outward — then
+repairs what it can. Two faults are worth knowing about in advance:
+
+- **Scale is arbitrary.** These tools have no idea how big a saint is; the mesh
+  comes out in nameless units. `--height-mm 180` rescales it to a real size.
+- **Floating fragments.** Reconstruction often leaves stray shells drifting near
+  the figure. `--drop-shells` keeps only the largest.
+
+What the inspector cannot check is self-intersection and wall thickness. Take
+those to the slicer, or Blender's 3D-Print Toolbox.
+
 ### Generating extra views
 
 Since the references here are generated rather than photographed, you can ask

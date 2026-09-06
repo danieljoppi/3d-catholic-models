@@ -61,10 +61,11 @@ full layout and the reasoning.
 | `scripts/new_piece.py <set> "<name>"` | Create a piece — folder tree, notes, metadata entry |
 | `scripts/import_images.py <set>` | File images from `_inbox/` into their items |
 | `scripts/relief_from_heightmap.py <img>` | Turn a depth map into a watertight relief panel STL |
+| `scripts/inspect_mesh.py <stl>` | Check an STL for print faults; `--fix` repairs them |
 
 The first two take `--dry-run`; `import_images.py` takes `--move` to empty the
-inbox and `--create` to add pieces it does not recognise. The mesher needs
-`numpy` and `Pillow`.
+inbox and `--create` to add pieces it does not recognise. The mesher and the
+inspector need `numpy` and `Pillow`.
 
 ## Making the models
 
