@@ -11,17 +11,19 @@
 
 ## Reference image
 
-`reference/` holds the source artwork this model is based on.
-See `../../metadata.json` for the provenance and licence of the set.
+![01-jesus-is-condemned-to-death](reference/01-jesus-is-condemned-to-death.jpg)
+
+A carved and polychromed wood relief panel in a Gothic tracery frame,
+numbered in gilt. See `../../metadata.json` for the provenance and licence.
 
 ## Modelling notes
 
-<!-- Composition, figures present, depth of relief, what to simplify. -->
+Jesus stands bound at left in a red robe and crown of thorns; Pilate sits at right on a gilded Gothic throne, hand extended in judgement, raised on a stone dais. Soldiers fill the left and centre. Cream limestone arcade behind, stepped platform centre.
 
-- Figures:
-- Relief depth:
-- Focal point:
-- Simplifications for printing:
+- **Figures:** Jesus, Pilate, 5 soldiers
+- **Relief depth:** TBD — see `docs/printing-guide.md` (8–15% of panel height)
+- **Focal point:** Pilate's extended hand and Jesus' bowed head, on the same horizontal
+- **Watch when printing:** Spear shafts and the throne's crocketed gable; the gilt throne tracery is the finest detail in the panel
 
 ## Print notes
 
@@ -34,7 +36,7 @@ See `../../metadata.json` for the provenance and licence of the set.
 
 ## Status
 
-- [ ] Reference image imported
+- [x] Reference image imported
 - [ ] Model sculpted
 - [ ] Mesh checked (manifold, no self-intersections)
 - [ ] Exported to `model/export/`

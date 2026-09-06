@@ -11,17 +11,19 @@
 
 ## Reference image
 
-`reference/` holds the source artwork this model is based on.
-See `../../metadata.json` for the provenance and licence of the set.
+![02-jesus-carries-his-cross](reference/02-jesus-carries-his-cross.jpg)
+
+A carved and polychromed wood relief panel in a Gothic tracery frame,
+numbered in gilt. See `../../metadata.json` for the provenance and licence.
 
 ## Modelling notes
 
-<!-- Composition, figures present, depth of relief, what to simplify. -->
+Jesus kneels under the cross at centre, shouldering the beam that runs corner to corner. Three soldiers at left with spears and oval shields, three at right, one with arm thrust out. Column and round arch behind.
 
-- Figures:
-- Relief depth:
-- Focal point:
-- Simplifications for printing:
+- **Figures:** Jesus, 6 soldiers
+- **Relief depth:** TBD — see `docs/printing-guide.md` (8–15% of panel height)
+- **Focal point:** The diagonal of the cross beam crossing Jesus' shoulders
+- **Watch when printing:** Spear tips, the soldier's outstretched arm (undercut), crown of thorns
 
 ## Print notes
 
@@ -34,7 +36,7 @@ See `../../metadata.json` for the provenance and licence of the set.
 
 ## Status
 
-- [ ] Reference image imported
+- [x] Reference image imported
 - [ ] Model sculpted
 - [ ] Mesh checked (manifold, no self-intersections)
 - [ ] Exported to `model/export/`

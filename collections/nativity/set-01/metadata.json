@@ -1,0 +1,26 @@
+{
+  "collection": "nativity",
+  "set": "set-01",
+  "title": "Nativity — Set 01",
+  "description": "First presépio: the Holy Family, the shepherds, the Magi, the animals, and the stable. One set is one scale and one style — its figures must stand together.",
+  "item_count": 0,
+  "item_dir": "pieces",
+  "item_file": "piece.md",
+  "numbered": false,
+  "scale": {
+    "figure_height_mm": null,
+    "note": "Set the standing-adult height before modelling anything; every other figure is proportioned from it. Traditional presépio scales run 70-200 mm for a home crib. Kneeling and infant figures are sized relative to this, not printed to it."
+  },
+  "source": {
+    "type": "TBD",
+    "downloaded": false
+  },
+  "rights": {
+    "artwork_author": "TBD per piece",
+    "licence": "TBD by the repository owner",
+    "notes": [
+      "Record per piece if origins differ across the set."
+    ]
+  },
+  "items": []
+}

@@ -7,28 +7,28 @@ personal devotion, and pieces small parishes can print themselves.
 
 | Path | |
 |---|---|
-| [`collections/stations-of-the-cross/set-01/`](collections/stations-of-the-cross/set-01/) | First Via Crucis series — 14 stations plus the Resurrection |
-| [`collections/statues/`](collections/statues/) | Standalone figures — awaiting the first set |
-| [`collections/nativity/`](collections/nativity/) | Presépio figures — awaiting the first set |
-| [`docs/`](docs/) | Folder structure, naming conventions, printing guide |
-| [`scripts/`](scripts/) | Import tooling |
+| [`collections/stations-of-the-cross/set-01/`](collections/stations-of-the-cross/set-01/) | First Via Crucis series — 15 carved relief panels, all imported |
+| [`collections/statues/`](collections/statues/) | Standalone figures — structure ready, no pieces yet |
+| [`collections/nativity/`](collections/nativity/) | Presépio figures — structure ready, no pieces yet |
+| [`inbox/`](inbox/) | **Upload here** — drop files, push, the pipeline files them |
+| [`docs/`](docs/) | [Making the models](docs/making-the-models.md), folder structure, naming, printing, [ADRs](docs/adr/) |
+| [`tests/`](tests/) | Fixtures with hand-derived expected values |
+| [`scripts/`](scripts/) | Import and scaffolding tooling |
 
 ## Status of Set 01
 
-The 15 reference images are **not yet in the repository**. The album host
-(`photos.app.goo.gl`) is blocked by the network policy of the environment
-this structure was built in, so the folders, metadata, and import script are
-ready and waiting for the files.
+All 15 reference images are imported — the 14 traditional stations plus the
+Resurrection, filed by the gilt Roman numeral carved into each panel. They are
+carved polychromed wood reliefs in Gothic tracery frames, 896×1200 JPEG.
 
-To import them:
+Every station folder has its image, its composition notes, and its checklist.
+No models sculpted yet — that is the next step.
 
-```sh
-# download the album, unzip into the set's _inbox/, then:
-scripts/import_stations.py collections/stations-of-the-cross/set-01 --dry-run
-scripts/import_stations.py collections/stations-of-the-cross/set-01 --move
-```
-
-Details in [the set's README](collections/stations-of-the-cross/set-01/README.md).
+The panels are not stylistically uniform — I–X are shallow reliefs on a cream
+limestone arcade, XI–XIV are deeper and darker with a plainer arch — but the
+frame and the relief depth are modelling choices, not inherited from the
+reference. See the
+[set README](collections/stations-of-the-cross/set-01/README.md#style).
 
 ## How a piece progresses
 
@@ -39,15 +39,57 @@ reference image  ->  model/source/  ->  model/export/  ->  test print  ->  rende
 Each item's `station.md` (or `piece.md`) carries that checklist, the
 scripture reference, and the print notes learned from the first proof.
 
-## Adding a new collection
+## Two kinds of set
 
-Same shape every time — a collection, a set inside it, one folder per item:
+The Stations are a **numbered series**: fifteen fixed items where the number is
+the identity, declared in `metadata.json` up front, images matched by number.
+
+Statues are an **open catalogue**: pieces accumulate one at a time, folders are
+named for the subject with no number, and images are matched by name.
 
 ```
-collections/<collection>/<set>/pieces/<NN-slug>/
+collections/stations-of-the-cross/set-01/stations/04-jesus-meets-his-mother/
+collections/statues/singles/pieces/sacred-heart-of-jesus/
 ```
 
-`docs/folder-structure.md` has the full layout and the reasoning behind it.
+Both use the same folder tree inside an item and the same tooling — a set says
+which it is with `"numbered": true|false`. `docs/folder-structure.md` has the
+full layout and the reasoning.
+
+## Tooling
+
+| | |
+|---|---|
+| `scripts/ingest.py` | **Drain `inbox/`** — files images and models, inspects meshes |
+| `scripts/new_piece.py <set> "<name>"` | Create a piece — folder tree, notes, metadata entry |
+| `scripts/import_images.py <set>` | File images from `_inbox/` into their items |
+| `scripts/relief_from_heightmap.py <img>` | Turn a depth map into a watertight relief panel STL |
+| `scripts/inspect_mesh.py <stl>` | Check an STL for print faults; `--fix` repairs them |
+
+The first two take `--dry-run`; `import_images.py` takes `--move` to empty the
+inbox and `--create` to add pieces it does not recognise. The mesher and the
+inspector need `numpy` and `Pillow`.
+
+## Uploading
+
+One folder: [`inbox/`](inbox/). Drop files in the subfolder for their
+collection, named after the item they belong to, and either run
+`scripts/ingest.py` or just push — `.github/workflows/ingest.yml` does it.
+
+```
+inbox/stations/07.jpg                      -> station 07's reference/
+inbox/statues/sacred-heart-of-jesus.stl    -> that piece's model/source/
+```
+
+Meshes are inspected for print faults on the way in and their report saved
+beside them. Details in [`inbox/README.md`](inbox/README.md).
+
+## Making the models
+
+The Stations are relief panels and the statues are figures in the round; those
+are different problems and the relief one is much more tractable. See
+[`docs/making-the-models.md`](docs/making-the-models.md) for both pipelines and
+the suggested first move.
 
 ## Large files
 
@@ -56,8 +98,24 @@ heavy, move `*.stl`, `*.3mf`, `*.blend`, and the reference images to
 [Git LFS](https://git-lfs.com) — the layout here does not change, only how
 those files are stored.
 
+## Contributing
+
+[`AGENTS.md`](AGENTS.md) has the conventions and invariants. Before committing:
+
+```sh
+tests/test_mesh_tools.sh
+python3 tests/check_metadata.py
+```
+
+Decisions and their reasoning live in [`docs/adr/`](docs/adr/).
+
 ## Rights
 
-Devotional artwork is not automatically public domain. Every set's
-`metadata.json` has a `rights` block; fill in the artist and the licence
-before publishing or distributing a model derived from someone else's image.
+The Stations set 01 reference panels were generated by the repository owner
+with Google Gemini Pro, so no third-party artist's rights are involved. Note
+that purely AI-generated images are generally not copyrightable, while the 3D
+models sculpted from them are original work and are protected normally.
+
+Every set's `metadata.json` carries a `rights` block. Fill it in as each set
+arrives — a set that comes from someone else's artwork needs the artist and
+licence recorded before anything derived from it is shared.

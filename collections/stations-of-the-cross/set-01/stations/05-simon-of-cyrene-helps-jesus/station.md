@@ -11,17 +11,19 @@
 
 ## Reference image
 
-`reference/` holds the source artwork this model is based on.
-See `../../metadata.json` for the provenance and licence of the set.
+![05-simon-of-cyrene-helps-jesus](reference/05-simon-of-cyrene-helps-jesus.jpg)
+
+A carved and polychromed wood relief panel in a Gothic tracery frame,
+numbered in gilt. See `../../metadata.json` for the provenance and licence.
 
 ## Modelling notes
 
-<!-- Composition, figures present, depth of relief, what to simplify. -->
+Simon of Cyrene, bare-headed in a pale tunic, takes the beam on his shoulder at centre-left, braced and leaning; Jesus behind him at right steadies the cross with a raised hand. Soldiers at both edges.
 
-- Figures:
-- Relief depth:
-- Focal point:
-- Simplifications for printing:
+- **Figures:** Jesus, Simon of Cyrene, 6 soldiers
+- **Relief depth:** TBD — see `docs/printing-guide.md` (8–15% of panel height)
+- **Focal point:** Simon's shoulder taking the weight
+- **Watch when printing:** Simon's braced forearms, spear tips, Jesus' raised hand
 
 ## Print notes
 
@@ -34,7 +36,7 @@ See `../../metadata.json` for the provenance and licence of the set.
 
 ## Status
 
-- [ ] Reference image imported
+- [x] Reference image imported
 - [ ] Model sculpted
 - [ ] Mesh checked (manifold, no self-intersections)
 - [ ] Exported to `model/export/`

@@ -11,17 +11,19 @@
 
 ## Reference image
 
-`reference/` holds the source artwork this model is based on.
-See `../../metadata.json` for the provenance and licence of the set.
+![06-veronica-wipes-the-face-of-jesus](reference/06-veronica-wipes-the-face-of-jesus.jpg)
+
+A carved and polychromed wood relief panel in a Gothic tracery frame,
+numbered in gilt. See `../../metadata.json` for the provenance and licence.
 
 ## Modelling notes
 
-<!-- Composition, figures present, depth of relief, what to simplify. -->
+Veronica stands at left in white and ochre, holding out the veil; the Holy Face is incised on the cloth. Jesus bends toward it at right, cross behind him. Soldiers flank; arcade and stepped plinth behind.
 
-- Figures:
-- Relief depth:
-- Focal point:
-- Simplifications for printing:
+- **Figures:** Jesus, Veronica, 6 soldiers
+- **Relief depth:** TBD — see `docs/printing-guide.md` (8–15% of panel height)
+- **Focal point:** The veil, held flat and frontal between them
+- **Watch when printing:** The incised Holy Face — it must read as line work at small scale, not carved relief
 
 ## Print notes
 
@@ -34,7 +36,7 @@ See `../../metadata.json` for the provenance and licence of the set.
 
 ## Status
 
-- [ ] Reference image imported
+- [x] Reference image imported
 - [ ] Model sculpted
 - [ ] Mesh checked (manifold, no self-intersections)
 - [ ] Exported to `model/export/`

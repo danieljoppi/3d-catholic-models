@@ -11,17 +11,19 @@
 
 ## Reference image
 
-`reference/` holds the source artwork this model is based on.
-See `../../metadata.json` for the provenance and licence of the set.
+![08-jesus-meets-the-women-of-jerusalem](reference/08-jesus-meets-the-women-of-jerusalem.jpg)
+
+A carved and polychromed wood relief panel in a Gothic tracery frame,
+numbered in gilt. See `../../metadata.json` for the provenance and licence.
 
 ## Modelling notes
 
-<!-- Composition, figures present, depth of relief, what to simplify. -->
+Jesus stands at left turning back toward four women of Jerusalem grouped at right — one kneeling in blue and ochre, one covering her face. City walls and a cobbled street behind; soldiers at the left edge.
 
-- Figures:
-- Relief depth:
-- Focal point:
-- Simplifications for printing:
+- **Figures:** Jesus, 4 women of Jerusalem, 3 soldiers
+- **Relief depth:** TBD — see `docs/printing-guide.md` (8–15% of panel height)
+- **Focal point:** The turn of Jesus' head toward the women
+- **Watch when printing:** The women's veil edges, the kneeling woman's clasped hands
 
 ## Print notes
 
@@ -34,7 +36,7 @@ See `../../metadata.json` for the provenance and licence of the set.
 
 ## Status
 
-- [ ] Reference image imported
+- [x] Reference image imported
 - [ ] Model sculpted
 - [ ] Mesh checked (manifold, no self-intersections)
 - [ ] Exported to `model/export/`
