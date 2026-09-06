@@ -40,8 +40,8 @@ let the scenery follow the story.
 If images are ever replaced, drop them in `_inbox/` and run from the repo root:
 
 ```sh
-scripts/import_stations.py collections/stations-of-the-cross/set-01 --dry-run
-scripts/import_stations.py collections/stations-of-the-cross/set-01 --move
+scripts/import_images.py collections/stations-of-the-cross/set-01 --dry-run
+scripts/import_images.py collections/stations-of-the-cross/set-01 --move
 ```
 
 The script files each image by the station number in its filename, renames it

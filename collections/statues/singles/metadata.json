@@ -1,0 +1,24 @@
+{
+  "collection": "statues",
+  "set": "singles",
+  "title": "Statues — Singles",
+  "description": "Standalone devotional figures with no series of their own: saints, the Sacred Heart, Our Lady under her various titles, crucifixes. A themed series gets its own set alongside this one.",
+  "item_count": 0,
+  "item_dir": "pieces",
+  "item_file": "piece.md",
+  "numbered": false,
+  "source": {
+    "type": "TBD",
+    "downloaded": false,
+    "note": "Record how each piece's reference came about — generated, photographed, or commissioned."
+  },
+  "rights": {
+    "artwork_author": "TBD per piece",
+    "licence": "TBD by the repository owner",
+    "notes": [
+      "Unlike a single-origin series, this set can mix origins — note per piece if they differ.",
+      "A reference photographed from an existing carving carries the sculptor's rights; a generated one does not. Record which before publishing a derived model."
+    ]
+  },
+  "items": []
+}

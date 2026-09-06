@@ -4,6 +4,9 @@
   "title": "Stations of the Cross — Set 01",
   "description": "First Via Crucis series: 14 traditional stations plus the Resurrection, as carved and polychromed wood relief panels in Gothic tracery frames, each numbered in gilt Roman numerals.",
   "item_count": 15,
+  "item_dir": "stations",
+  "item_file": "station.md",
+  "numbered": true,
   "source": {
     "type": "ai-generated",
     "generator": "Google Gemini Pro",
@@ -26,7 +29,26 @@
       "Pick a licence for the derived models before distributing them; CC BY-SA or CC BY-NC are the usual choices for devotional work meant to be shared with parishes."
     ]
   },
-  "stations": [
+  "style": {
+    "medium": "carved polychromed wood relief, Gothic tracery frame",
+    "aspect_ratio": "3:4 portrait",
+    "palette": [
+      "dark oak frame",
+      "cream limestone",
+      "crimson robe",
+      "marian blue",
+      "ochre",
+      "silver armour",
+      "gilt lettering"
+    ],
+    "notes": [
+      "Panels I-X: shallow relief on a cream limestone arcade, lighter oak frame with pierced tracery.",
+      "Panels XI-XIV: deeper, more crowded high relief, darker red-brown wood, plainer ogee arch, open landscape instead of the arcade.",
+      "Panel XV: returns to the tracery frame, set in a rock tomb interior.",
+      "The relief depth and frame change at XI is a property of the reference art, not a constraint on the models: model one frame component for all 15 and choose a single relief depth. The background shift at XI tracks the narrative moving from the praetorium to Golgotha and is worth keeping."
+    ]
+  },
+  "items": [
     {
       "number": 1,
       "id": "01-jesus-is-condemned-to-death",
@@ -207,24 +229,5 @@
       "reference_image": "stations/15-the-resurrection/reference/15-the-resurrection.jpg",
       "status": "reference-imported"
     }
-  ],
-  "style": {
-    "medium": "carved polychromed wood relief, Gothic tracery frame",
-    "aspect_ratio": "3:4 portrait",
-    "palette": [
-      "dark oak frame",
-      "cream limestone",
-      "crimson robe",
-      "marian blue",
-      "ochre",
-      "silver armour",
-      "gilt lettering"
-    ],
-    "notes": [
-      "Panels I-X: shallow relief on a cream limestone arcade, lighter oak frame with pierced tracery.",
-      "Panels XI-XIV: deeper, more crowded high relief, darker red-brown wood, plainer ogee arch, open landscape instead of the arcade.",
-      "Panel XV: returns to the tracery frame, set in a rock tomb interior.",
-      "The relief depth and frame change at XI is a property of the reference art, not a constraint on the models: model one frame component for all 15 and choose a single relief depth. The background shift at XI tracks the narrative moving from the praetorium to Golgotha and is worth keeping."
-    ]
-  }
+  ]
 }

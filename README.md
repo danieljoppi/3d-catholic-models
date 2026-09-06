@@ -8,10 +8,10 @@ personal devotion, and pieces small parishes can print themselves.
 | Path | |
 |---|---|
 | [`collections/stations-of-the-cross/set-01/`](collections/stations-of-the-cross/set-01/) | First Via Crucis series — 15 carved relief panels, all imported |
-| [`collections/statues/`](collections/statues/) | Standalone figures — awaiting the first set |
+| [`collections/statues/`](collections/statues/) | Standalone figures — structure ready, no pieces yet |
 | [`collections/nativity/`](collections/nativity/) | Presépio figures — awaiting the first set |
 | [`docs/`](docs/) | Folder structure, naming conventions, printing guide |
-| [`scripts/`](scripts/) | Import tooling |
+| [`scripts/`](scripts/) | Import and scaffolding tooling |
 
 ## Status of Set 01
 
@@ -37,15 +37,32 @@ reference image  ->  model/source/  ->  model/export/  ->  test print  ->  rende
 Each item's `station.md` (or `piece.md`) carries that checklist, the
 scripture reference, and the print notes learned from the first proof.
 
-## Adding a new collection
+## Two kinds of set
 
-Same shape every time — a collection, a set inside it, one folder per item:
+The Stations are a **numbered series**: fifteen fixed items where the number is
+the identity, declared in `metadata.json` up front, images matched by number.
+
+Statues are an **open catalogue**: pieces accumulate one at a time, folders are
+named for the subject with no number, and images are matched by name.
 
 ```
-collections/<collection>/<set>/pieces/<NN-slug>/
+collections/stations-of-the-cross/set-01/stations/04-jesus-meets-his-mother/
+collections/statues/singles/pieces/sacred-heart-of-jesus/
 ```
 
-`docs/folder-structure.md` has the full layout and the reasoning behind it.
+Both use the same folder tree inside an item and the same tooling — a set says
+which it is with `"numbered": true|false`. `docs/folder-structure.md` has the
+full layout and the reasoning.
+
+## Tooling
+
+| | |
+|---|---|
+| `scripts/new_piece.py <set> "<name>"` | Create a piece — folder tree, notes, metadata entry |
+| `scripts/import_images.py <set>` | File images from `_inbox/` into their items |
+
+Both take `--dry-run`. `import_images.py` takes `--move` to empty the inbox and
+`--create` to add pieces it does not recognise.
 
 ## Large files
 
