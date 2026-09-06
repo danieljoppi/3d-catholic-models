@@ -152,6 +152,13 @@ other fourteen can use it.
 Station XII is a good candidate — a strong central figure, a clear silhouette,
 and few of the thin fragile features that make XI difficult.
 
+## Decisions behind this pipeline
+
+- [ADR-0005](adr/0005-depth-maps-not-luminance.md) — why depth maps, not luminance
+- [ADR-0006](adr/0006-what-belongs-in-git.md) — why the STLs are not committed
+- [ADR-0007](adr/0007-heavy-dependencies-run-in-ci.md) — why torch runs in CI
+- [ADR-0009](adr/0009-hand-derived-test-fixtures.md) — why the fixtures are arithmetic
+
 ## Tooling
 
 | | |

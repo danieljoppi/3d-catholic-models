@@ -305,6 +305,12 @@ def main() -> int:
         volume = -volume
         print("  flipped the whole mesh outward")
 
+    # Drop unreferenced vertices first: a dropped shell must not skew the
+    # bounding box that --height-mm is measured against.
+    used, faces = np.unique(faces, return_inverse=True)
+    vertices = vertices[used]
+    faces = faces.reshape(-1, 3)
+
     if args.height_mm:
         current = (vertices.max(axis=0) - vertices.min(axis=0)).max()
         if current <= 0:
@@ -314,11 +320,6 @@ def main() -> int:
         vertices = vertices * factor
         volume *= factor ** 3
         print(f"  scaled by {factor:.4f} so the tallest axis is {args.height_mm} mm")
-
-    # Drop any vertex the surviving faces no longer reference.
-    used, faces = np.unique(faces, return_inverse=True)
-    vertices = vertices[used]
-    faces = faces.reshape(-1, 3)
 
     _, _, counts = edge_table(faces)
     holes = int((counts == 1).sum())

@@ -1,6 +1,7 @@
 # Folder structure
 
 ```
+inbox/<collection>/        uploads land here; scripts/ingest.py drains them
 collections/
   <collection>/            stations-of-the-cross, statues, nativity, ...
     <set>/                 one coherent series or one artist's set

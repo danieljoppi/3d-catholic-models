@@ -10,7 +10,9 @@ personal devotion, and pieces small parishes can print themselves.
 | [`collections/stations-of-the-cross/set-01/`](collections/stations-of-the-cross/set-01/) | First Via Crucis series — 15 carved relief panels, all imported |
 | [`collections/statues/`](collections/statues/) | Standalone figures — structure ready, no pieces yet |
 | [`collections/nativity/`](collections/nativity/) | Presépio figures — structure ready, no pieces yet |
-| [`docs/`](docs/) | [Making the models](docs/making-the-models.md), folder structure, naming, printing |
+| [`inbox/`](inbox/) | **Upload here** — drop files, push, the pipeline files them |
+| [`docs/`](docs/) | [Making the models](docs/making-the-models.md), folder structure, naming, printing, [ADRs](docs/adr/) |
+| [`tests/`](tests/) | Fixtures with hand-derived expected values |
 | [`scripts/`](scripts/) | Import and scaffolding tooling |
 
 ## Status of Set 01
@@ -58,6 +60,7 @@ full layout and the reasoning.
 
 | | |
 |---|---|
+| `scripts/ingest.py` | **Drain `inbox/`** — files images and models, inspects meshes |
 | `scripts/new_piece.py <set> "<name>"` | Create a piece — folder tree, notes, metadata entry |
 | `scripts/import_images.py <set>` | File images from `_inbox/` into their items |
 | `scripts/relief_from_heightmap.py <img>` | Turn a depth map into a watertight relief panel STL |
@@ -66,6 +69,20 @@ full layout and the reasoning.
 The first two take `--dry-run`; `import_images.py` takes `--move` to empty the
 inbox and `--create` to add pieces it does not recognise. The mesher and the
 inspector need `numpy` and `Pillow`.
+
+## Uploading
+
+One folder: [`inbox/`](inbox/). Drop files in the subfolder for their
+collection, named after the item they belong to, and either run
+`scripts/ingest.py` or just push — `.github/workflows/ingest.yml` does it.
+
+```
+inbox/stations/07.jpg                      -> station 07's reference/
+inbox/statues/sacred-heart-of-jesus.stl    -> that piece's model/source/
+```
+
+Meshes are inspected for print faults on the way in and their report saved
+beside them. Details in [`inbox/README.md`](inbox/README.md).
 
 ## Making the models
 
@@ -80,6 +97,17 @@ Reference photos and meshes are binary and grow fast. If the repository gets
 heavy, move `*.stl`, `*.3mf`, `*.blend`, and the reference images to
 [Git LFS](https://git-lfs.com) — the layout here does not change, only how
 those files are stored.
+
+## Contributing
+
+[`AGENTS.md`](AGENTS.md) has the conventions and invariants. Before committing:
+
+```sh
+tests/test_mesh_tools.sh
+python3 tests/check_metadata.py
+```
+
+Decisions and their reasoning live in [`docs/adr/`](docs/adr/).
 
 ## Rights
 
