@@ -11,17 +11,19 @@
 
 ## Reference image
 
-`reference/` holds the source artwork this model is based on.
-See `../../metadata.json` for the provenance and licence of the set.
+![11-jesus-is-nailed-to-the-cross](reference/11-jesus-is-nailed-to-the-cross.jpg)
+
+A carved and polychromed wood relief panel in a Gothic tracery frame,
+numbered in gilt. See `../../metadata.json` for the provenance and licence.
 
 ## Modelling notes
 
-<!-- Composition, figures present, depth of relief, what to simplify. -->
+Deeper, more crowded relief. Christ is nailed to the cross laid flat on the ground; a soldier drives the nail with a raised hammer, another pins the arm. The INRI titulus rests on the stones at left, a ladder leans against the rock, an oil lamp and coiled rope lie in the foreground. Mary and the holy women weep at left, soldiers mass at right. Storm sky.
 
-- Figures:
-- Relief depth:
-- Focal point:
-- Simplifications for printing:
+- **Figures:** Christ, the Blessed Virgin, 4 holy women, 8 soldiers
+- **Relief depth:** TBD — see `docs/printing-guide.md` (8–15% of panel height)
+- **Focal point:** The hammer at the top of its swing, above the pierced hand
+- **Watch when printing:** Hammer heads, ladder rungs, the rope coil, spear tips — the ladder is the most fragile element in the set
 
 ## Print notes
 
@@ -34,7 +36,7 @@ See `../../metadata.json` for the provenance and licence of the set.
 
 ## Status
 
-- [ ] Reference image imported
+- [x] Reference image imported
 - [ ] Model sculpted
 - [ ] Mesh checked (manifold, no self-intersections)
 - [ ] Exported to `model/export/`

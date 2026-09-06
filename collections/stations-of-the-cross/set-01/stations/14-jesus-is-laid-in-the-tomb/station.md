@@ -11,17 +11,19 @@
 
 ## Reference image
 
-`reference/` holds the source artwork this model is based on.
-See `../../metadata.json` for the provenance and licence of the set.
+![14-jesus-is-laid-in-the-tomb](reference/14-jesus-is-laid-in-the-tomb.jpg)
+
+A carved and polychromed wood relief panel in a Gothic tracery frame,
+numbered in gilt. See `../../metadata.json` for the provenance and licence.
 
 ## Modelling notes
 
-<!-- Composition, figures present, depth of relief, what to simplify. -->
+The entombment, inside the rock tomb. Christ's body is lowered onto the stone slab by Joseph of Arimathea and Nicodemus; Mary in blue stands behind, mourners crowd both sides. The carved rock vault fills the whole arch.
 
-- Figures:
-- Relief depth:
-- Focal point:
-- Simplifications for printing:
+- **Figures:** Christ, the Blessed Virgin, Joseph of Arimathea, Nicodemus, 6 mourners
+- **Relief depth:** TBD — see `docs/printing-guide.md` (8–15% of panel height)
+- **Focal point:** The white shroud under the body, brightest against the rock
+- **Watch when printing:** The shroud's folds, the crowd's overlapping hands and veils
 
 ## Print notes
 
@@ -34,7 +36,7 @@ See `../../metadata.json` for the provenance and licence of the set.
 
 ## Status
 
-- [ ] Reference image imported
+- [x] Reference image imported
 - [ ] Model sculpted
 - [ ] Mesh checked (manifold, no self-intersections)
 - [ ] Exported to `model/export/`

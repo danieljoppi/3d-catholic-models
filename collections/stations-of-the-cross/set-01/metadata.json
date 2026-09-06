@@ -2,18 +2,20 @@
   "collection": "stations-of-the-cross",
   "set": "set-01",
   "title": "Stations of the Cross — Set 01",
-  "description": "First set of Via Crucis reference images, 14 traditional stations plus the Resurrection.",
+  "description": "First Via Crucis series: 14 traditional stations plus the Resurrection, as carved and polychromed wood relief panels in Gothic tracery frames, each numbered in gilt Roman numerals.",
   "item_count": 15,
   "source": {
     "type": "google-photos-album",
     "url": "https://photos.app.goo.gl/EdYMHR8VvGUWcRZD9",
-    "downloaded": false,
-    "note": "Images not yet imported. Run scripts/import_stations.py once the album is downloaded into _inbox/."
+    "downloaded": true,
+    "imported_via": "uploaded directly to the session; album host unreachable from the build environment",
+    "image_size": "896x1200",
+    "note": "Station numbers were read from the gilt Roman numeral on each panel."
   },
   "rights": {
     "artwork_author": "TODO",
     "licence": "TODO",
-    "notes": "Record the origin and licence of the source artwork before publishing any derived model."
+    "notes": "Supplied by the repository owner. Record origin and licence before publishing derived models."
   },
   "stations": [
     {
@@ -25,8 +27,8 @@
         "la": "Iesus morti damnatur"
       },
       "scripture": "Mt 27:22-26",
-      "reference_image": null,
-      "status": "planned"
+      "reference_image": "stations/01-jesus-is-condemned-to-death/reference/01-jesus-is-condemned-to-death.jpg",
+      "status": "reference-imported"
     },
     {
       "number": 2,
@@ -37,8 +39,8 @@
         "la": "Iesus crucem baiulat"
       },
       "scripture": "Jn 19:17",
-      "reference_image": null,
-      "status": "planned"
+      "reference_image": "stations/02-jesus-carries-his-cross/reference/02-jesus-carries-his-cross.jpg",
+      "status": "reference-imported"
     },
     {
       "number": 3,
@@ -49,8 +51,8 @@
         "la": "Iesus primum cadit"
       },
       "scripture": "Is 53:4-6",
-      "reference_image": null,
-      "status": "planned"
+      "reference_image": "stations/03-jesus-falls-the-first-time/reference/03-jesus-falls-the-first-time.jpg",
+      "status": "reference-imported"
     },
     {
       "number": 4,
@@ -61,8 +63,8 @@
         "la": "Iesus Matri suae occurrit"
       },
       "scripture": "Lk 2:34-35",
-      "reference_image": null,
-      "status": "planned"
+      "reference_image": "stations/04-jesus-meets-his-mother/reference/04-jesus-meets-his-mother.jpg",
+      "status": "reference-imported"
     },
     {
       "number": 5,
@@ -73,8 +75,8 @@
         "la": "Simon Cyrenaeus Iesum adiuvat"
       },
       "scripture": "Mk 15:21",
-      "reference_image": null,
-      "status": "planned"
+      "reference_image": "stations/05-simon-of-cyrene-helps-jesus/reference/05-simon-of-cyrene-helps-jesus.jpg",
+      "status": "reference-imported"
     },
     {
       "number": 6,
@@ -85,8 +87,8 @@
         "la": "Veronica faciem Iesu tergit"
       },
       "scripture": "Is 53:2-3",
-      "reference_image": null,
-      "status": "planned"
+      "reference_image": "stations/06-veronica-wipes-the-face-of-jesus/reference/06-veronica-wipes-the-face-of-jesus.jpg",
+      "status": "reference-imported"
     },
     {
       "number": 7,
@@ -97,8 +99,8 @@
         "la": "Iesus iterum cadit"
       },
       "scripture": "Lam 3:1-2",
-      "reference_image": null,
-      "status": "planned"
+      "reference_image": "stations/07-jesus-falls-the-second-time/reference/07-jesus-falls-the-second-time.jpg",
+      "status": "reference-imported"
     },
     {
       "number": 8,
@@ -109,8 +111,8 @@
         "la": "Iesus mulieres Ierusalem consolatur"
       },
       "scripture": "Lk 23:27-28",
-      "reference_image": null,
-      "status": "planned"
+      "reference_image": "stations/08-jesus-meets-the-women-of-jerusalem/reference/08-jesus-meets-the-women-of-jerusalem.jpg",
+      "status": "reference-imported"
     },
     {
       "number": 9,
@@ -121,8 +123,8 @@
         "la": "Iesus tertium cadit"
       },
       "scripture": "Lam 3:27-30",
-      "reference_image": null,
-      "status": "planned"
+      "reference_image": "stations/09-jesus-falls-the-third-time/reference/09-jesus-falls-the-third-time.jpg",
+      "status": "reference-imported"
     },
     {
       "number": 10,
@@ -133,8 +135,8 @@
         "la": "Iesus vestibus spoliatur"
       },
       "scripture": "Jn 19:23-24",
-      "reference_image": null,
-      "status": "planned"
+      "reference_image": "stations/10-jesus-is-stripped-of-his-garments/reference/10-jesus-is-stripped-of-his-garments.jpg",
+      "status": "reference-imported"
     },
     {
       "number": 11,
@@ -145,8 +147,8 @@
         "la": "Iesus cruci affigitur"
       },
       "scripture": "Lk 23:33-34",
-      "reference_image": null,
-      "status": "planned"
+      "reference_image": "stations/11-jesus-is-nailed-to-the-cross/reference/11-jesus-is-nailed-to-the-cross.jpg",
+      "status": "reference-imported"
     },
     {
       "number": 12,
@@ -157,8 +159,8 @@
         "la": "Iesus in cruce moritur"
       },
       "scripture": "Lk 23:44-46",
-      "reference_image": null,
-      "status": "planned"
+      "reference_image": "stations/12-jesus-dies-on-the-cross/reference/12-jesus-dies-on-the-cross.jpg",
+      "status": "reference-imported"
     },
     {
       "number": 13,
@@ -169,8 +171,8 @@
         "la": "Iesus de cruce deponitur"
       },
       "scripture": "Jn 19:38",
-      "reference_image": null,
-      "status": "planned"
+      "reference_image": "stations/13-jesus-is-taken-down-from-the-cross/reference/13-jesus-is-taken-down-from-the-cross.jpg",
+      "status": "reference-imported"
     },
     {
       "number": 14,
@@ -181,8 +183,8 @@
         "la": "Iesus in sepulcro ponitur"
       },
       "scripture": "Mt 27:59-60",
-      "reference_image": null,
-      "status": "planned"
+      "reference_image": "stations/14-jesus-is-laid-in-the-tomb/reference/14-jesus-is-laid-in-the-tomb.jpg",
+      "status": "reference-imported"
     },
     {
       "number": 15,
@@ -193,8 +195,27 @@
         "la": "Resurrectio Domini"
       },
       "scripture": "Mt 28:5-6",
-      "reference_image": null,
-      "status": "planned"
+      "reference_image": "stations/15-the-resurrection/reference/15-the-resurrection.jpg",
+      "status": "reference-imported"
     }
-  ]
+  ],
+  "style": {
+    "medium": "carved polychromed wood relief, Gothic tracery frame",
+    "aspect_ratio": "3:4 portrait",
+    "palette": [
+      "dark oak frame",
+      "cream limestone",
+      "crimson robe",
+      "marian blue",
+      "ochre",
+      "silver armour",
+      "gilt lettering"
+    ],
+    "notes": [
+      "Panels I-X: shallow relief on a cream limestone arcade, lighter oak frame with pierced tracery.",
+      "Panels XI-XIV: deeper, more crowded high relief, darker red-brown wood, plainer ogee arch, open landscape instead of the arcade.",
+      "Panel XV: returns to the tracery frame, set in a rock tomb interior.",
+      "The relief depth and frame change at XI is the main consistency decision to make before modelling."
+    ]
+  }
 }

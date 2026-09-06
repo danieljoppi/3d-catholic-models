@@ -5,52 +5,66 @@ Resurrection, 15 images in all.
 
 ## Source
 
-Google Photos album: <https://photos.app.goo.gl/EdYMHR8VvGUWcRZD9>
+Supplied by the repository owner (originally the Google Photos album
+<https://photos.app.goo.gl/EdYMHR8VvGUWcRZD9>, which is unreachable from the
+environment this repository was built in).
 
-**The images are not yet in this repository.** The album host is not
-reachable from the environment this structure was created in, so the folders,
-metadata, and import tooling are in place and waiting for the files.
+All 15 images are imported, 896×1200 JPEG. Each was filed by reading the gilt
+Roman numeral carved into its frame.
 
-## Importing the images
+## Style
 
-1. Open the album and download all 15 images (Google Photos: ⋮ → *Download all*).
-2. Unzip them into `_inbox/` in this directory.
-3. From the repository root:
+Carved and polychromed wood relief panels in Gothic tracery frames — dark oak,
+cream limestone, a crimson robe for Christ, Marian blue, ochre, silver armour,
+gilt numerals. Portrait 3:4.
 
-   ```sh
-   scripts/import_stations.py collections/stations-of-the-cross/set-01 --dry-run
-   ```
+The set is not uniform, and the difference matters before any modelling starts:
 
-   Check the mapping it prints — station order matters more than filenames.
-4. Re-run without `--dry-run` to import. Add `--move` to empty `_inbox/`,
-   or `--by-order` if the filenames contain numbers that are not station
-   numbers.
+| Panels | Treatment |
+|---|---|
+| I–X | Shallow relief against a cream limestone arcade; lighter oak frame with pierced tracery |
+| XI–XIV | Deeper, more crowded high relief; darker red-brown wood; plainer ogee arch; open landscape instead of the arcade |
+| XV | Tracery frame again, set inside the rock tomb |
 
-The script renames each image to its station, files it under
-`stations/<NN-slug>/reference/`, and records it in `metadata.json`.
+Decide early whether the models follow each panel as carved or normalise the
+whole set to one relief depth and one frame. A Via Crucis reads as a series on
+a wall, so the frames especially want to match.
+
+## Re-importing
+
+If images are ever replaced, drop them in `_inbox/` and run from the repo root:
+
+```sh
+scripts/import_stations.py collections/stations-of-the-cross/set-01 --dry-run
+scripts/import_stations.py collections/stations-of-the-cross/set-01 --move
+```
+
+The script files each image by the station number in its filename, renames it
+into `stations/<NN-slug>/reference/`, and updates `metadata.json`.
 
 ## Stations
 
-| # | Station | Português |
-|---|---|---|
-| 1 | Jesus is condemned to death | Jesus é condenado à morte |
-| 2 | Jesus carries His cross | Jesus carrega a cruz |
-| 3 | Jesus falls the first time | Jesus cai pela primeira vez |
-| 4 | Jesus meets His mother | Jesus encontra sua Mãe |
-| 5 | Simon of Cyrene helps Jesus carry the cross | Simão Cireneu ajuda Jesus a carregar a cruz |
-| 6 | Veronica wipes the face of Jesus | Verônica enxuga o rosto de Jesus |
-| 7 | Jesus falls the second time | Jesus cai pela segunda vez |
-| 8 | Jesus meets the women of Jerusalem | Jesus consola as mulheres de Jerusalém |
-| 9 | Jesus falls the third time | Jesus cai pela terceira vez |
-| 10 | Jesus is stripped of His garments | Jesus é despojado das vestes |
-| 11 | Jesus is nailed to the cross | Jesus é pregado na cruz |
-| 12 | Jesus dies on the cross | Jesus morre na cruz |
-| 13 | Jesus is taken down from the cross | Jesus é descido da cruz |
-| 14 | Jesus is laid in the tomb | Jesus é sepultado |
-| 15 | The Resurrection of the Lord | A Ressurreição do Senhor |
+Each links to its folder — reference image, notes, and working files.
+
+| # | Station | Português | Panel |
+|---|---|---|---|
+| I | [Jesus is condemned to death](stations/01-jesus-is-condemned-to-death/) | Jesus é condenado à morte | <img src="stations/01-jesus-is-condemned-to-death/reference/01-jesus-is-condemned-to-death.jpg" width="90" alt=""> |
+| II | [Jesus carries His cross](stations/02-jesus-carries-his-cross/) | Jesus carrega a cruz | <img src="stations/02-jesus-carries-his-cross/reference/02-jesus-carries-his-cross.jpg" width="90" alt=""> |
+| III | [Jesus falls the first time](stations/03-jesus-falls-the-first-time/) | Jesus cai pela primeira vez | <img src="stations/03-jesus-falls-the-first-time/reference/03-jesus-falls-the-first-time.jpg" width="90" alt=""> |
+| IV | [Jesus meets His mother](stations/04-jesus-meets-his-mother/) | Jesus encontra sua Mãe | <img src="stations/04-jesus-meets-his-mother/reference/04-jesus-meets-his-mother.jpg" width="90" alt=""> |
+| V | [Simon of Cyrene helps Jesus carry the cross](stations/05-simon-of-cyrene-helps-jesus/) | Simão Cireneu ajuda Jesus a carregar a cruz | <img src="stations/05-simon-of-cyrene-helps-jesus/reference/05-simon-of-cyrene-helps-jesus.jpg" width="90" alt=""> |
+| VI | [Veronica wipes the face of Jesus](stations/06-veronica-wipes-the-face-of-jesus/) | Verônica enxuga o rosto de Jesus | <img src="stations/06-veronica-wipes-the-face-of-jesus/reference/06-veronica-wipes-the-face-of-jesus.jpg" width="90" alt=""> |
+| VII | [Jesus falls the second time](stations/07-jesus-falls-the-second-time/) | Jesus cai pela segunda vez | <img src="stations/07-jesus-falls-the-second-time/reference/07-jesus-falls-the-second-time.jpg" width="90" alt=""> |
+| VIII | [Jesus meets the women of Jerusalem](stations/08-jesus-meets-the-women-of-jerusalem/) | Jesus consola as mulheres de Jerusalém | <img src="stations/08-jesus-meets-the-women-of-jerusalem/reference/08-jesus-meets-the-women-of-jerusalem.jpg" width="90" alt=""> |
+| IX | [Jesus falls the third time](stations/09-jesus-falls-the-third-time/) | Jesus cai pela terceira vez | <img src="stations/09-jesus-falls-the-third-time/reference/09-jesus-falls-the-third-time.jpg" width="90" alt=""> |
+| X | [Jesus is stripped of His garments](stations/10-jesus-is-stripped-of-his-garments/) | Jesus é despojado das vestes | <img src="stations/10-jesus-is-stripped-of-his-garments/reference/10-jesus-is-stripped-of-his-garments.jpg" width="90" alt=""> |
+| XI | [Jesus is nailed to the cross](stations/11-jesus-is-nailed-to-the-cross/) | Jesus é pregado na cruz | <img src="stations/11-jesus-is-nailed-to-the-cross/reference/11-jesus-is-nailed-to-the-cross.jpg" width="90" alt=""> |
+| XII | [Jesus dies on the cross](stations/12-jesus-dies-on-the-cross/) | Jesus morre na cruz | <img src="stations/12-jesus-dies-on-the-cross/reference/12-jesus-dies-on-the-cross.jpg" width="90" alt=""> |
+| XIII | [Jesus is taken down from the cross](stations/13-jesus-is-taken-down-from-the-cross/) | Jesus é descido da cruz | <img src="stations/13-jesus-is-taken-down-from-the-cross/reference/13-jesus-is-taken-down-from-the-cross.jpg" width="90" alt=""> |
+| XIV | [Jesus is laid in the tomb](stations/14-jesus-is-laid-in-the-tomb/) | Jesus é sepultado | <img src="stations/14-jesus-is-laid-in-the-tomb/reference/14-jesus-is-laid-in-the-tomb.jpg" width="90" alt=""> |
+| XV | [The Resurrection of the Lord](stations/15-the-resurrection/) | A Ressurreição do Senhor | <img src="stations/15-the-resurrection/reference/15-the-resurrection.jpg" width="90" alt=""> |
 
 ## Rights
 
-The artist and licence of the source artwork are still `TODO` in
-`metadata.json`. Fill them in before publishing or sharing any model derived
-from these images.
+The artist and licence are still `TODO` in `metadata.json`. Fill them in
+before publishing or sharing any model derived from these images.

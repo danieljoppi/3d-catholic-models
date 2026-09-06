@@ -7,7 +7,7 @@ personal devotion, and pieces small parishes can print themselves.
 
 | Path | |
 |---|---|
-| [`collections/stations-of-the-cross/set-01/`](collections/stations-of-the-cross/set-01/) | First Via Crucis series — 14 stations plus the Resurrection |
+| [`collections/stations-of-the-cross/set-01/`](collections/stations-of-the-cross/set-01/) | First Via Crucis series — 15 carved relief panels, all imported |
 | [`collections/statues/`](collections/statues/) | Standalone figures — awaiting the first set |
 | [`collections/nativity/`](collections/nativity/) | Presépio figures — awaiting the first set |
 | [`docs/`](docs/) | Folder structure, naming conventions, printing guide |
@@ -15,20 +15,18 @@ personal devotion, and pieces small parishes can print themselves.
 
 ## Status of Set 01
 
-The 15 reference images are **not yet in the repository**. The album host
-(`photos.app.goo.gl`) is blocked by the network policy of the environment
-this structure was built in, so the folders, metadata, and import script are
-ready and waiting for the files.
+All 15 reference images are imported — the 14 traditional stations plus the
+Resurrection, filed by the gilt Roman numeral carved into each panel. They are
+carved polychromed wood reliefs in Gothic tracery frames, 896×1200 JPEG.
 
-To import them:
+Every station folder has its image, its composition notes, and its checklist.
+No models sculpted yet — that is the next step.
 
-```sh
-# download the album, unzip into the set's _inbox/, then:
-scripts/import_stations.py collections/stations-of-the-cross/set-01 --dry-run
-scripts/import_stations.py collections/stations-of-the-cross/set-01 --move
-```
-
-Details in [the set's README](collections/stations-of-the-cross/set-01/README.md).
+One thing to settle first: the set is not stylistically uniform. Panels I–X are
+shallow reliefs on a cream limestone arcade; XI–XIV are deeper, more crowded,
+in a darker wood with a plainer arch. The
+[set README](collections/stations-of-the-cross/set-01/README.md#style) has the
+detail and the decision it implies.
 
 ## How a piece progresses
 
