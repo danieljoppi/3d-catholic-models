@@ -29,14 +29,32 @@ reverence:
 - **Smart assembly** — modular designs that print on smaller beds, and ornate
   pieces that attach to standard wooden structures to build larger altars.
 
+### Two ways we get there
+
+We do not have to sculpt all of it. Much of what furnishes a chapel has already
+been modelled well by the community and given away, so the project runs on two
+supply lines:
+
+- **Curated** — [`docs/sourcing-models.md`](docs/sourcing-models.md) is a route
+  through what already exists on MakerWorld and Printables: crucifixes, Marian
+  and saint statues, holy water fonts, candle holders. Links only. We never
+  copy anyone's files in here, because their licences are set per model and
+  several forbid it outright — read the licence on the model's own page, every
+  time ([ADR-0011](docs/adr/0011-link-to-community-models-never-vendor-them.md)).
+- **Ours** — the pieces nobody has published. A survey on 2026-09-07 found the
+  community strong on devotional figures and effectively empty in two places:
+  **a complete Stations of the Cross**, and **the liturgical heart** — altar
+  frontals, ambons and tabernacle adornments at real scale rather than
+  dollhouse miniatures. Those are what we make.
+
 ### Where that stands today
 
 Honestly: early. The repository holds three collections — a Via Crucis series
 with all fifteen references filed and described, plus statues and a presépio
 scaffolded but empty — the reference art behind them, and a pipeline that turns
 a reference image into a watertight, print-checked mesh. One station has been
-through it end to end. The catalogue is young; the tooling that has to carry it
-is not.
+through it end to end. The curated route will furnish a chapel long before our
+own catalogue can; that is the point of having both.
 
 ## What is here
 
@@ -46,7 +64,7 @@ is not.
 | [`collections/statues/`](collections/statues/) | Standalone figures — structure ready, no pieces yet |
 | [`collections/nativity/`](collections/nativity/) | Presépio figures — structure ready, no pieces yet |
 | [`inbox/`](inbox/) | **Upload here** — drop files, push, the pipeline files them |
-| [`docs/`](docs/) | [Making the models](docs/making-the-models.md), folder structure, naming, printing, [ADRs](docs/adr/) |
+| [`docs/`](docs/) | [Sourcing models](docs/sourcing-models.md), [making the models](docs/making-the-models.md), folder structure, naming, printing, [ADRs](docs/adr/) |
 | [`tests/`](tests/) | Fixtures with hand-derived expected values |
 | [`scripts/`](scripts/) | Import and scaffolding tooling |
 
@@ -134,10 +152,13 @@ beside them. Details in [`inbox/README.md`](inbox/README.md).
 
 ## Making the models
 
-The Stations are relief panels and the statues are figures in the round; those
-are different problems and the relief one is much more tractable. See
-[`docs/making-the-models.md`](docs/making-the-models.md) for both pipelines and
-the suggested first move.
+Check [`docs/sourcing-models.md`](docs/sourcing-models.md) first — if the
+community already has it, print theirs.
+
+For the gaps: the Stations are relief panels and the statues are figures in the
+round; those are different problems and the relief one is much more tractable.
+See [`docs/making-the-models.md`](docs/making-the-models.md) for both pipelines
+and the suggested first move.
 
 ## Large files
 

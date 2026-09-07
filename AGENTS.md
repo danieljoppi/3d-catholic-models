@@ -33,6 +33,10 @@ Break these and the tooling breaks with them.
 5. **Generated binaries stay out of git** — meshes are rebuilt from their
    inputs. Depth maps and previews are committed because they are edited by
    hand and small. See ADR-0006.
+6. **No third-party model files enter this repository.** Community models are
+   linked from `docs/sourcing-models.md`, never copied in — their licences are
+   per-model, several forbid redistribution outright, and everything under
+   `collections/` has to stay ours to license. See ADR-0011.
 
 ## Conventions
 
