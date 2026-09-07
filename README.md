@@ -42,10 +42,9 @@ supply lines:
   several forbid it outright — read the licence on the model's own page, every
   time ([ADR-0011](docs/adr/0011-link-to-community-models-never-vendor-them.md)).
 - **Ours** — the pieces nobody has published. A survey on 2026-09-07 found the
-  community strong on devotional figures and effectively empty in two places:
-  **a complete Stations of the Cross**, and **the liturgical heart** — altar
-  frontals, ambons and tabernacle adornments at real scale rather than
-  dollhouse miniatures. Those are what we make.
+  community thorough on devotional figures, patchy on the sanctuary, and empty
+  on **a complete Stations of the Cross**. That last one is what we make, and
+  it is why set 01 exists.
 
 ### Where that stands today
 
