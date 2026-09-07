@@ -1,7 +1,42 @@
-# 3D Catholic Models
+# Chapel Anywhere
 
-Ideas and working files for Catholic 3D models — beautiful images for
-personal devotion, and pieces small parishes can print themselves.
+An open-source initiative providing everything you need to build a chapel's
+interior from scratch. From full altar ornamentation to detailed statues of
+saints, we offer high-quality 3D-printable sacred art so anyone can build a
+complete place of worship, anywhere in the world.
+
+## About
+
+The 3D printing community offers endless models for pop culture and tabletop
+games, but finding beautiful, high-quality Catholic sacred art is a real
+challenge. **Chapel Anywhere** was created to fill this void.
+
+Imagine you are in the middle of nowhere, working with a tight budget, but you
+want to build a chapel from scratch. You have the walls and the roof, but you
+need everything else inside. With a 3D printer and this repository, you can
+bring that chapel to life.
+
+Our mission is to provide every element needed to furnish and adorn a complete
+prayer space — a growing, open-source library of STLs, focused on beauty and
+reverence:
+
+- **The Liturgical Heart** — designs for the sanctuary: altar frontals, ambons
+  (lecterns), and tabernacle adornments.
+- **Sacred Statuary** — highly detailed statues of Our Lady, St Joseph,
+  St Padre Pio, and other saints to grace the sides of your altar.
+- **Wall and space elements** — a complete Stations of the Cross, crucifixes,
+  and holy water fonts.
+- **Smart assembly** — modular designs that print on smaller beds, and ornate
+  pieces that attach to standard wooden structures to build larger altars.
+
+### Where that stands today
+
+Honestly: early. The repository holds three collections — a Via Crucis series
+with all fifteen references filed and described, plus statues and a presépio
+scaffolded but empty — the reference art behind them, and a pipeline that turns
+a reference image into a watertight, print-checked mesh. One station has been
+through it end to end. The catalogue is young; the tooling that has to carry it
+is not.
 
 ## What is here
 
@@ -22,7 +57,10 @@ Resurrection, filed by the gilt Roman numeral carved into each panel. They are
 carved polychromed wood reliefs in Gothic tracery frames, 896×1200 JPEG.
 
 Every station folder has its image, its composition notes, and its checklist.
-No models sculpted yet — that is the next step.
+Station XII has an automated first pass — depth map and a shaded preview are
+committed, and [its notes](collections/stations-of-the-cross/set-01/stations/12-jesus-dies-on-the-cross/station.md)
+record what the depth estimate got right and the four things it cannot do. The
+other fourteen have not been run, and nothing is sculpted by hand yet.
 
 The panels are not stylistically uniform — I–X are shallow reliefs on a cream
 limestone arcade, XI–XIV are deeper and darker with a plainer arch — but the
@@ -71,10 +109,14 @@ The first two take `--dry-run`; `import_images.py` takes `--move` to empty the
 inbox and `--create` to add pieces it does not recognise. The mesher and the
 inspector need `numpy` and `Pillow`.
 
-## Continuing this work elsewhere
+## Automation
 
-[`HANDOFF.md`](HANDOFF.md) — current state, what is verified, what is not, and
-the two setup steps still outstanding.
+| Workflow | Runs on | |
+|---|---|---|
+| `checks.yml` | push, PR | Mesh fixtures, Meshy response shapes, metadata, credential tripwire |
+| `ingest.yml` | push touching `inbox/` | Files uploads, inspects meshes, commits the result |
+| `relief.yml` | manual dispatch | Depth map and relief mesh for one station; needs torch, which is why it runs here |
+| `meshy-fetch.yml` | manual dispatch | Pulls Meshy **API** tasks into `inbox/`; needs the `MESHY_API_KEY` repository secret |
 
 ## Uploading
 

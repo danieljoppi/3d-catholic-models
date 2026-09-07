@@ -7,8 +7,8 @@
 
 `scripts/meshy.py` was written to pull finished models out of the Meshy
 account and drop them in `inbox/`. It was written blind — the session that
-wrote it could not reach `api.meshy.ai` at all — and [`HANDOFF.md`](../../HANDOFF.md)
-asked the next session to correct it against a real response.
+wrote it could not reach `api.meshy.ai` at all — so correcting it against real
+responses was left to a session that could.
 
 With network access and a working key, the guesses turned out to be close.
 Verified on 2026-09-07 against the live API:

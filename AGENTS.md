@@ -1,7 +1,8 @@
 # Working in this repository
 
-Ideas and working files for Catholic 3D models — images for personal devotion,
-and pieces small parishes can print. Read this before changing anything.
+**Chapel Anywhere** — open-source, 3D-printable sacred art, enough of it to
+furnish a chapel's interior from scratch: altar ornamentation, statues of the
+saints, a Via Crucis. Read this before changing anything.
 
 ## The shape of it
 
