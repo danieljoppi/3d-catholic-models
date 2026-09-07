@@ -47,11 +47,13 @@ Break these and the tooling breaks with them.
 
 ```sh
 tests/test_mesh_tools.sh     # mesh tooling against hand-derived fixtures
+python3 tests/test_meshy.py  # Meshy response shapes
 python3 tests/check_metadata.py
 python3 -m compileall -q scripts
 ```
 
-CI runs all three on push (`.github/workflows/checks.yml`).
+CI runs all of these on push (`.github/workflows/checks.yml`), plus the
+credential tripwire `tests/check_no_secrets.py`.
 
 ## Adding tooling
 

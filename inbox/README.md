@@ -23,6 +23,15 @@ Name each file after the item it belongs to. That is the whole trick.
 
 Accents are fine in the name — `são-josé.stl` resolves to `sao-jose`.
 
+## Models made in the Meshy web app
+
+Download them from **My Assets** as STL (or 3MF) and drop them here, named for
+their item. There is no script for this: models generated in the web app live
+in a space the Meshy API cannot read, so `scripts/meshy.py` will not find them
+however full My Assets looks — see
+[ADR-0010](../docs/adr/0010-meshy-workspace-is-not-the-api.md). `meshy.py`
+fetches models generated through the API, which is a different set of files.
+
 ## Then run
 
 ```sh

@@ -1,26 +1,25 @@
 # Handoff
 
-State of the project as of 2026-09-06, written so another session — one with
-network access to `api.meshy.ai` — can pick it up cold.
+State of the project as of 2026-09-07, written so another session can pick it
+up cold. The 2026-09-06 handoff asked for one thing — a session with network
+access to `api.meshy.ai` — and that session has now run; section 3 records what
+it found.
 
 ---
 
 ## 1. Do this first
 
-**Rotate the Meshy API key.** A live key was pasted in plaintext into the
-conversation that produced this repository. It is in that transcript. It was
-never written to any file here (`tests/check_no_secrets.py` enforces that), but
-treat it as compromised.
+**Rotate the Meshy API key.** Two live keys have now been pasted in plaintext
+into conversations about this repository: one in the conversation that produced
+it, one on 2026-09-07. Neither was ever written to a file here
+(`tests/check_no_secrets.py` enforces that), but both are in transcripts —
+treat both as compromised.
 
 1. Revoke it at meshy.ai and issue a new one.
 2. Add the new one as a **repository secret**, not a file:
    Settings → Secrets and variables → Actions → New repository secret,
    named `MESHY_API_KEY`.
 3. Never paste it into a chat, a workflow input, or a commit again.
-
-**Set `main` as the default branch.** Settings → Branches. The repository was
-empty when this work started, so the feature branch became the default and I
-could not change it through the API.
 
 ---
 
@@ -36,7 +35,7 @@ collections/
   stations-of-the-cross/set-01/    15 panels, complete, described
   statues/singles/                 ready, no pieces yet
   nativity/set-01/                 ready, no pieces yet
-docs/  adr/                        9 decision records
+docs/  adr/                        10 decision records
 scripts/                           tooling
 tests/                             fixtures with hand-derived values
 ```
@@ -44,52 +43,58 @@ tests/                             fixtures with hand-derived values
 Start with [`AGENTS.md`](AGENTS.md) for conventions and invariants, then
 [`docs/adr/`](docs/adr/) for why anything is the way it is.
 
-## 3. The blocker this handoff exists to solve
+## 3. What the Meshy session found
 
-This session's egress policy blocked two hosts outright:
+`api.meshy.ai` is reachable now, and the key authenticates. `scripts/meshy.py`
+has been corrected against the live API and is no longer written blind. Two
+things came out of it — one small, one that changes the plan.
 
-| Host | Consequence |
+### The endpoints and shapes, verified 2026-09-07
+
+| | |
 |---|---|
-| `photos.app.goo.gl` | Could not download the original album; the owner uploaded the 15 images by hand instead |
-| `api.meshy.ai` | **Could not call Meshy at all** |
+| `GET /openapi/v1/image-to-3d` | 200, a bare JSON list |
+| `GET /openapi/v2/text-to-3d` | 200, a bare JSON list |
+| `GET /openapi/v1/balance` | 200, `{"balance": 125}` |
+| `GET /openapi/v1/text-to-3d` | 404 `NoMatchingRoute` |
+| `GET /openapi/v2/image-to-3d` | 404 `NoMatchingRoute` |
 
-So `scripts/meshy.py` and `.github/workflows/meshy-fetch.yml` are **written but
-never executed against the real API**. Everything else in the repository has
-been run and verified.
+The two guessed endpoints were right, including their mismatched version
+numbers. Corrected in the client: `sort_by=-created_at` and a 50-item page cap
+with pagination; `created_at` is milliseconds, not seconds; the only
+downloadable status is `SUCCEEDED`; a text task is named by its `prompt` and an
+image task has no name at all; `model_urls` also offers `3mf`, which matters
+here more than `usdz` does; errors arrive as `{"message": ...}`; the invented
+`name` / `object_prompt` / `model_url` fallbacks are gone. `tests/test_meshy.py`
+pins all of it offline, and `meshy.py balance` is a one-call check that a key
+works.
 
-### What is unverified, specifically
+### The part that changes the plan
 
-`scripts/meshy.py` guesses at Meshy's response shape. These are the assumptions
-to check first:
+**The API cannot see the models in the web app.** Every listing returns `[]`
+while My Assets holds the fifteen Stations reliefs and a Marian statue. The key
+is fine — `balance` answers on it. Meshy keeps API assets and workspace assets
+in separate spaces by design, and publishes no endpoint that lists or downloads
+workspace assets. Full reasoning in
+[ADR-0010](docs/adr/0010-meshy-workspace-is-not-the-api.md).
 
-```python
-BASE = "https://api.meshy.ai"
-ENDPOINTS = [("image-to-3d", "/openapi/v1/image-to-3d"),
-             ("text-to-3d",  "/openapi/v2/text-to-3d")]
-# auth:     Authorization: Bearer <key>
-# listing:  a bare list, or {"result": [...]}, or {"data": [...]}
-# per task: id, status ("SUCCEEDED"), name/prompt, model_urls {stl, glb, obj, fbx, usdz}
-```
+So no script here will ever pull those reliefs. To get them in:
 
-**Correct them from a real response, not from memory.** The client has a probe
-mode for exactly this:
+1. Meshy web app → **My Assets** → the model → download **STL** (or 3MF).
+2. Drop the files in `inbox/stations/`, named for the item they belong to —
+   `station-12-jesus-dies-on-the-cross.stl` and so on.
+3. `scripts/ingest.py --create`, or just push and let `ingest.yml` do it.
 
-```sh
-export MESHY_API_KEY=...        # the rotated one
-scripts/meshy.py probe          # dumps raw JSON of one page
-```
+`meshy.py` stays useful for anything generated **through the API** later:
+those it lists, names from their prompt, and downloads unattended, which is
+what `.github/workflows/meshy-fetch.yml` automates. API results expire after
+about three days, so that fetch has to be prompt.
 
-Then fix `ENDPOINTS`, `model_urls()` and `describe()` to match, and run:
+### Still blocked
 
-```sh
-scripts/meshy.py list
-scripts/meshy.py fetch-all --collection statues --format stl --dry-run
-scripts/meshy.py fetch-all --collection statues --format stl
-scripts/ingest.py --create
-```
-
-Or, once the secret is set, do the whole thing in CI without a local key —
-Actions → **Fetch from Meshy** → mode `probe`, then `fetch`.
+`photos.app.goo.gl` remains unreachable, so the original album still cannot be
+downloaded here. The fifteen references were uploaded by hand and are in the
+repository; nothing further depends on it.
 
 ## 4. Tooling
 
@@ -101,7 +106,7 @@ Actions → **Fetch from Meshy** → mode `probe`, then `fetch`.
 | `inspect_mesh.py` | yes | STL fault report and repair |
 | `relief_from_heightmap.py` | yes | Heightmap → watertight relief panel |
 | `depth_map.py` | yes, in CI | Reference → depth map (needs torch) |
-| `meshy.py` | **no** | Written blind; see section 3 |
+| `meshy.py` | yes, against the live API | Lists and downloads **API tasks only** — not the web workspace (ADR-0010) |
 
 Standard library plus `numpy` and `Pillow`. Torch runs only in CI.
 
@@ -112,7 +117,7 @@ Standard library plus `numpy` and `Pillow`. Torch runs only in CI.
 | `checks.yml` | push, PR | yes — green on PR #1 |
 | `relief.yml` | dispatch | yes — ran Station XII in 56s |
 | `ingest.yml` | push to `inbox/` | not yet fired with real files |
-| `meshy-fetch.yml` | dispatch | **no** — needs the secret |
+| `meshy-fetch.yml` | dispatch | not yet — needs the secret; the client it runs is verified |
 
 ## 5. Where the modelling actually got to
 
@@ -164,8 +169,9 @@ and dimensions as inputs, so they are one dispatch each.
 
 ```sh
 tests/test_mesh_tools.sh          # 17 fixtures
+python3 tests/test_meshy.py       # Meshy response shapes
 python3 tests/check_metadata.py   # metadata vs. filesystem
 python3 tests/check_no_secrets.py # credential tripwire
 ```
 
-CI runs all three.
+CI runs all four.

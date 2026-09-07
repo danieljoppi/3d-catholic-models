@@ -15,6 +15,7 @@ accident, and knows what to weigh when reversing one.
 | [0007](0007-heavy-dependencies-run-in-ci.md) | Heavy dependencies run in CI | Accepted |
 | [0008](0008-one-inbox-for-uploads.md) | One inbox for uploads | Accepted |
 | [0009](0009-hand-derived-test-fixtures.md) | Hand-derived test fixtures | Accepted |
+| [0010](0010-meshy-workspace-is-not-the-api.md) | The Meshy workspace is not the Meshy API | Accepted |
 
 New record: copy [`template.md`](template.md), take the next number, add a row.
 A superseded record stays in place with its status changed and a pointer to

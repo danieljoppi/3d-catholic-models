@@ -61,7 +61,7 @@ full layout and the reasoning.
 | | |
 |---|---|
 | `scripts/ingest.py` | **Drain `inbox/`** — files images and models, inspects meshes |
-| `scripts/meshy.py` | Pull finished models from Meshy into `inbox/` (untested — see HANDOFF) |
+| `scripts/meshy.py` | Pull models generated **through the Meshy API** into `inbox/`. Web-app models are a separate space it cannot read — export those by hand ([ADR-0010](docs/adr/0010-meshy-workspace-is-not-the-api.md)) |
 | `scripts/new_piece.py <set> "<name>"` | Create a piece — folder tree, notes, metadata entry |
 | `scripts/import_images.py <set>` | File images from `_inbox/` into their items |
 | `scripts/relief_from_heightmap.py <img>` | Turn a depth map into a watertight relief panel STL |
