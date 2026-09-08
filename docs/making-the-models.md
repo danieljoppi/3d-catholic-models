@@ -1,5 +1,11 @@
 # Making the models
 
+**Before any of this: check whether it already exists.** Much of what furnishes
+a chapel has been modelled well by someone else and given away —
+[`sourcing-models.md`](sourcing-models.md) is the curated route, and says where
+the community is strong and where the real gaps are. Modelling a worse copy of
+a good free crucifix helps nobody. What follows is for the gaps.
+
 The collections pose two different problems, and conflating them wastes the
 most time.
 

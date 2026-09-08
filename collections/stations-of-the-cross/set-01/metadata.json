@@ -19,15 +19,16 @@
   },
   "rights": {
     "artwork_author": "Daniel Joppi, generated with Google Gemini Pro",
-    "licence": "TBD by the repository owner",
+    "licence": "CC BY-SA 4.0",
     "third_party_source": false,
     "notes": [
       "No third-party artist's rights are involved — the panels were generated, not photographed or copied.",
       "Google's Gemini terms assign ownership of generated output to the user.",
       "Purely AI-generated images are generally not eligible for copyright in the US and several other jurisdictions; the 3D models sculpted from them are original work and are protectable in the normal way.",
       "Gemini output carries SynthID watermarking, which survives in these JPEGs.",
-      "Pick a licence for the derived models before distributing them; CC BY-SA or CC BY-NC are the usual choices for devotional work meant to be shared with parishes."
-    ]
+      "Models derived from these references are licensed CC BY-SA 4.0: anyone may print, adapt and sell prints, provided they attribute and license derivatives under the same terms. See LICENSE."
+    ],
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/"
   },
   "style": {
     "medium": "carved polychromed wood relief, Gothic tracery frame",

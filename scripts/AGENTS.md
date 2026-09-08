@@ -12,7 +12,7 @@ Anything heavier runs in CI (ADR-0007).
 | `inspect_mesh.py` | STL print-fault report and repair |
 | `relief_from_heightmap.py` | Heightmap to watertight relief panel |
 | `depth_map.py` | Reference image to depth map (needs torch; CI only) |
-| `meshy.py` | Pull models from the Meshy API. **Written blind** — never run against the real API; see HANDOFF.md |
+| `meshy.py` | Pull models from the Meshy API. Verified against the live API; sees API tasks only, never the web workspace — ADR-0010 |
 
 ## Rules
 

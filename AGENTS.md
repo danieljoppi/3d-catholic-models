@@ -1,7 +1,8 @@
 # Working in this repository
 
-Ideas and working files for Catholic 3D models — images for personal devotion,
-and pieces small parishes can print. Read this before changing anything.
+**Chapel Anywhere** — open-source, 3D-printable sacred art, enough of it to
+furnish a chapel's interior from scratch: altar ornamentation, statues of the
+saints, a Via Crucis. Read this before changing anything.
 
 ## The shape of it
 
@@ -32,6 +33,10 @@ Break these and the tooling breaks with them.
 5. **Generated binaries stay out of git** — meshes are rebuilt from their
    inputs. Depth maps and previews are committed because they are edited by
    hand and small. See ADR-0006.
+6. **No third-party model files enter this repository.** Community models are
+   linked from `docs/sourcing-models.md`, never copied in — their licences are
+   per-model, several forbid redistribution outright, and everything under
+   `collections/` has to stay ours to license. See ADR-0011.
 
 ## Conventions
 
@@ -47,11 +52,13 @@ Break these and the tooling breaks with them.
 
 ```sh
 tests/test_mesh_tools.sh     # mesh tooling against hand-derived fixtures
+python3 tests/test_meshy.py  # Meshy response shapes
 python3 tests/check_metadata.py
 python3 -m compileall -q scripts
 ```
 
-CI runs all three on push (`.github/workflows/checks.yml`).
+CI runs all of these on push (`.github/workflows/checks.yml`), plus the
+credential tripwire `tests/check_no_secrets.py`.
 
 ## Adding tooling
 

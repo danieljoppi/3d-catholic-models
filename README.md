@@ -1,7 +1,59 @@
-# 3D Catholic Models
+# Chapel Anywhere
 
-Ideas and working files for Catholic 3D models — beautiful images for
-personal devotion, and pieces small parishes can print themselves.
+An open-source initiative providing everything you need to build a chapel's
+interior from scratch. From full altar ornamentation to detailed statues of
+saints, we offer high-quality 3D-printable sacred art so anyone can build a
+complete place of worship, anywhere in the world.
+
+## About
+
+The 3D printing community offers endless models for pop culture and tabletop
+games, but finding beautiful, high-quality Catholic sacred art is a real
+challenge. **Chapel Anywhere** was created to fill this void.
+
+Imagine you are in the middle of nowhere, working with a tight budget, but you
+want to build a chapel from scratch. You have the walls and the roof, but you
+need everything else inside. With a 3D printer and this repository, you can
+bring that chapel to life.
+
+Our mission is to provide every element needed to furnish and adorn a complete
+prayer space — a growing, open-source library of STLs, focused on beauty and
+reverence:
+
+- **The Liturgical Heart** — designs for the sanctuary: altar frontals, ambons
+  (lecterns), and tabernacle adornments.
+- **Sacred Statuary** — highly detailed statues of Our Lady, St Joseph,
+  St Padre Pio, and other saints to grace the sides of your altar.
+- **Wall and space elements** — a complete Stations of the Cross, crucifixes,
+  and holy water fonts.
+- **Smart assembly** — modular designs that print on smaller beds, and ornate
+  pieces that attach to standard wooden structures to build larger altars.
+
+### Two ways we get there
+
+We do not have to sculpt all of it. Much of what furnishes a chapel has already
+been modelled well by the community and given away, so the project runs on two
+supply lines:
+
+- **Curated** — [`docs/sourcing-models.md`](docs/sourcing-models.md) is a route
+  through what already exists on MakerWorld and Printables: crucifixes, Marian
+  and saint statues, holy water fonts, candle holders. Links only. We never
+  copy anyone's files in here, because their licences are set per model and
+  several forbid it outright — read the licence on the model's own page, every
+  time ([ADR-0011](docs/adr/0011-link-to-community-models-never-vendor-them.md)).
+- **Ours** — the pieces nobody has published. A survey on 2026-09-07 found the
+  community thorough on devotional figures, patchy on the sanctuary, and empty
+  on **a complete Stations of the Cross**. That last one is what we make, and
+  it is why set 01 exists.
+
+### Where that stands today
+
+Honestly: early. The repository holds three collections — a Via Crucis series
+with all fifteen references filed and described, plus statues and a presépio
+scaffolded but empty — the reference art behind them, and a pipeline that turns
+a reference image into a watertight, print-checked mesh. One station has been
+through it end to end. The curated route will furnish a chapel long before our
+own catalogue can; that is the point of having both.
 
 ## What is here
 
@@ -11,7 +63,7 @@ personal devotion, and pieces small parishes can print themselves.
 | [`collections/statues/`](collections/statues/) | Standalone figures — structure ready, no pieces yet |
 | [`collections/nativity/`](collections/nativity/) | Presépio figures — structure ready, no pieces yet |
 | [`inbox/`](inbox/) | **Upload here** — drop files, push, the pipeline files them |
-| [`docs/`](docs/) | [Making the models](docs/making-the-models.md), folder structure, naming, printing, [ADRs](docs/adr/) |
+| [`docs/`](docs/) | [Sourcing models](docs/sourcing-models.md), [making the models](docs/making-the-models.md), folder structure, naming, printing, [ADRs](docs/adr/) |
 | [`tests/`](tests/) | Fixtures with hand-derived expected values |
 | [`scripts/`](scripts/) | Import and scaffolding tooling |
 
@@ -22,7 +74,10 @@ Resurrection, filed by the gilt Roman numeral carved into each panel. They are
 carved polychromed wood reliefs in Gothic tracery frames, 896×1200 JPEG.
 
 Every station folder has its image, its composition notes, and its checklist.
-No models sculpted yet — that is the next step.
+Station XII has an automated first pass — depth map and a shaded preview are
+committed, and [its notes](collections/stations-of-the-cross/set-01/stations/12-jesus-dies-on-the-cross/station.md)
+record what the depth estimate got right and the four things it cannot do. The
+other fourteen have not been run, and nothing is sculpted by hand yet.
 
 The panels are not stylistically uniform — I–X are shallow reliefs on a cream
 limestone arcade, XI–XIV are deeper and darker with a plainer arch — but the
@@ -61,7 +116,7 @@ full layout and the reasoning.
 | | |
 |---|---|
 | `scripts/ingest.py` | **Drain `inbox/`** — files images and models, inspects meshes |
-| `scripts/meshy.py` | Pull finished models from Meshy into `inbox/` (untested — see HANDOFF) |
+| `scripts/meshy.py` | Pull models generated **through the Meshy API** into `inbox/`. Web-app models are a separate space it cannot read — export those by hand ([ADR-0010](docs/adr/0010-meshy-workspace-is-not-the-api.md)) |
 | `scripts/new_piece.py <set> "<name>"` | Create a piece — folder tree, notes, metadata entry |
 | `scripts/import_images.py <set>` | File images from `_inbox/` into their items |
 | `scripts/relief_from_heightmap.py <img>` | Turn a depth map into a watertight relief panel STL |
@@ -71,10 +126,14 @@ The first two take `--dry-run`; `import_images.py` takes `--move` to empty the
 inbox and `--create` to add pieces it does not recognise. The mesher and the
 inspector need `numpy` and `Pillow`.
 
-## Continuing this work elsewhere
+## Automation
 
-[`HANDOFF.md`](HANDOFF.md) — current state, what is verified, what is not, and
-the two setup steps still outstanding.
+| Workflow | Runs on | |
+|---|---|---|
+| `checks.yml` | push, PR | Mesh fixtures, Meshy response shapes, metadata, credential tripwire |
+| `ingest.yml` | push touching `inbox/` | Files uploads, inspects meshes, commits the result |
+| `relief.yml` | manual dispatch | Depth map and relief mesh for one station; needs torch, which is why it runs here |
+| `meshy-fetch.yml` | manual dispatch | Pulls Meshy **API** tasks into `inbox/`; needs the `MESHY_API_KEY` repository secret |
 
 ## Uploading
 
@@ -92,10 +151,13 @@ beside them. Details in [`inbox/README.md`](inbox/README.md).
 
 ## Making the models
 
-The Stations are relief panels and the statues are figures in the round; those
-are different problems and the relief one is much more tractable. See
-[`docs/making-the-models.md`](docs/making-the-models.md) for both pipelines and
-the suggested first move.
+Check [`docs/sourcing-models.md`](docs/sourcing-models.md) first — if the
+community already has it, print theirs.
+
+For the gaps: the Stations are relief panels and the statues are figures in the
+round; those are different problems and the relief one is much more tractable.
+See [`docs/making-the-models.md`](docs/making-the-models.md) for both pipelines
+and the suggested first move.
 
 ## Large files
 
@@ -115,13 +177,38 @@ python3 tests/check_metadata.py
 
 Decisions and their reasoning live in [`docs/adr/`](docs/adr/).
 
-## Rights
+## Licence
 
-The Stations set 01 reference panels were generated by the repository owner
-with Google Gemini Pro, so no third-party artist's rights are involved. Note
-that purely AI-generated images are generally not copyrightable, while the 3D
-models sculpted from them are original work and are protected normally.
+Two licences, because this repository holds two different kinds of thing.
 
-Every set's `metadata.json` carries a `rights` block. Fill it in as each set
-arrives — a set that comes from someone else's artwork needs the artist and
-licence recorded before anything derived from it is shared.
+| What | Licence | |
+|---|---|---|
+| Models, reference art, documentation | [**CC BY-SA 4.0**](LICENSE) | Print them, adapt them, sell what you print — attribute, and license derivatives under the same terms |
+| Code — `scripts/`, `tests/` | [**MIT**](LICENSE-CODE) | Do essentially anything |
+
+ShareAlike is deliberate. A parish paying a local print shop is a commercial
+transaction, and a non-commercial licence would have blocked precisely the
+person this project exists for. What it does ask in return is that
+improvements to the models come back out under the same terms.
+
+Attribute like this:
+
+> Chapel Anywhere by Daniel Joppi — CC BY-SA 4.0
+
+**One honest caveat.** The Stations reference panels were generated with Google
+Gemini Pro, and purely AI-generated images are generally not copyrightable in
+the US and several other jurisdictions. For those image files the licence grant
+may well be moot — they are arguably free to everyone already. The 3D models
+sculpted from them are original human work, and are protected and licensed
+normally. No third-party artist's rights are involved either way.
+
+Every set's `metadata.json` carries a `rights` block. A set that ever comes
+from someone else's artwork needs the artist and licence recorded there before
+anything derived from it is shared —
+[ADR-0003](docs/adr/0003-provenance-before-distribution.md).
+
+**Third-party models linked from
+[`docs/sourcing-models.md`](docs/sourcing-models.md) are not covered by any of
+this.** They carry their own licences, set by their own authors, and none of
+their files are in this repository — read each licence on its own page
+([ADR-0011](docs/adr/0011-link-to-community-models-never-vendor-them.md)).

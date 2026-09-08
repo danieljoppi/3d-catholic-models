@@ -36,3 +36,6 @@ jobs:
 
       - name: Mesh tool fixtures
         run: tests/test_mesh_tools.sh
+
+      - name: Meshy client parses the documented shapes
+        run: python tests/test_meshy.py

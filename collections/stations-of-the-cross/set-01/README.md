@@ -83,6 +83,8 @@ user. Two things still worth knowing:
   it survives in these JPEGs. It does not restrict use; it just means the
   images are identifiable as AI-generated.
 
-`licence` in `metadata.json` is still `TBD`. For devotional models meant to
-reach parishes, CC BY-SA (share alike) or CC BY-NC (non-commercial) are the
-usual choices — worth deciding before the first model is distributed.
+Models derived from these panels are licensed **CC BY-SA 4.0**: print them,
+adapt them, sell what you print, attribute, and license derivatives under the
+same terms. Non-commercial was considered and rejected — it would have blocked
+a parish paying a local print shop, which is the case the project exists for.
+See the repository [`LICENSE`](../../../LICENSE).

@@ -14,6 +14,14 @@ Model once at real proportions and scale at slicing time. Detail that
 survives at 300 mm disappears at 80 mm, so check the small size before
 calling a station finished.
 
+### What a set costs in filament
+
+Station XII, meshed 150 mm wide and 12 mm deep, encloses **287 cm³** — about
+350 g of PLA, so roughly 5 kg for all fifteen. Worth settling before a
+production run, because the size decision dominates it: the same panel at
+100 mm is under a third of the volume, and hollowing the backing plate cuts it
+further. Neither costs detail anyone notices at wall distance.
+
 ## Relief vs. free-standing
 
 Stations work best as **bas-relief** panels: one flat back, no supports, fast

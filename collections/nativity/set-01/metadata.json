@@ -17,10 +17,12 @@
   },
   "rights": {
     "artwork_author": "TBD per piece",
-    "licence": "TBD by the repository owner",
+    "licence": "CC BY-SA 4.0",
     "notes": [
-      "Record per piece if origins differ across the set."
-    ]
+      "Record per piece if origins differ across the set.",
+      "Models derived from these references are licensed CC BY-SA 4.0: anyone may print, adapt and sell prints, provided they attribute and license derivatives under the same terms. See LICENSE."
+    ],
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/"
   },
   "items": []
 }
