@@ -1,8 +1,14 @@
-# Station 15 — The Resurrection of the Lord
+# The Resurrection of the Lord — companion panel
+
+**Not one of the fourteen stations.** The Via Crucis is fourteen; the
+Resurrection is a common addition in modern devotion, and this set ships it
+alongside them. The `15` in the folder name is a permanent item id, not a
+station number — see
+[ADR-0012](../../../../../docs/adr/0012-the-resurrection-is-a-companion-not-a-station.md).
 
 | | |
 |---|---|
-| **Number** | 15 of 15 |
+| **Role** | Companion panel (the set has 14 stations) |
 | **Slug** | `15-the-resurrection` |
 | **Português** | A Ressurreição do Senhor |
 | **Latina** | Resurrectio Domini |

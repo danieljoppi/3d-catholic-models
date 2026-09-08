@@ -44,6 +44,18 @@ def check_set(meta_path: Path) -> list[str]:
         if numbers != list(range(1, len(items) + 1)):
             problems.append(f"{where}: numbered set is not 1..{len(items)}")
 
+    # A companion is an item that ships with the set but is not part of the
+    # canonical sequence — the Resurrection alongside the fourteen stations.
+    # It keeps its number so file matching by number still works; what it does
+    # not count toward is traditional_count. See ADR-0012.
+    if "traditional_count" in meta:
+        traditional = [i for i in items if not i.get("companion")]
+        if meta["traditional_count"] != len(traditional):
+            problems.append(
+                f"{where}: traditional_count is {meta['traditional_count']}, "
+                f"{len(traditional)} item(s) are not marked companion"
+            )
+
     item_root = set_dir / meta["item_dir"]
     on_disk = {p.name for p in item_root.iterdir() if p.is_dir()} if item_root.is_dir() else set()
 

@@ -2,8 +2,9 @@
   "collection": "stations-of-the-cross",
   "set": "set-01",
   "title": "Stations of the Cross — Set 01",
-  "description": "First Via Crucis series: 14 traditional stations plus the Resurrection, as carved and polychromed wood relief panels in Gothic tracery frames, each numbered in gilt Roman numerals.",
+  "description": "First Via Crucis series: the 14 traditional stations, with the Resurrection as a companion panel, as carved and polychromed wood relief panels in Gothic tracery frames, each numbered in gilt Roman numerals.",
   "item_count": 15,
+  "traditional_count": 14,
   "item_dir": "stations",
   "item_file": "station.md",
   "numbered": true,
@@ -228,7 +229,9 @@
       },
       "scripture": "Mt 28:5-6",
       "reference_image": "stations/15-the-resurrection/reference/15-the-resurrection.jpg",
-      "status": "reference-imported"
+      "status": "reference-imported",
+      "companion": true,
+      "companion_note": "Not one of the fourteen traditional stations. Kept in the series because the reference set was generated with it and many modern Via Crucis devotions close with the Resurrection; its number 15 is a permanent id, not a station number."
     }
   ]
 }

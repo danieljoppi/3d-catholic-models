@@ -24,8 +24,8 @@ reverence:
   (lecterns), and tabernacle adornments.
 - **Sacred Statuary** — highly detailed statues of Our Lady, St Joseph,
   St Padre Pio, and other saints to grace the sides of your altar.
-- **Wall and space elements** — a complete Stations of the Cross, crucifixes,
-  and holy water fonts.
+- **Wall and space elements** — a complete 14-piece Stations of the Cross,
+  crucifixes, and holy water fonts.
 - **Smart assembly** — modular designs that print on smaller beds, and ornate
   pieces that attach to standard wooden structures to build larger altars.
 
@@ -69,9 +69,14 @@ own catalogue can; that is the point of having both.
 
 ## Status of Set 01
 
-All 15 reference images are imported — the 14 traditional stations plus the
-Resurrection, filed by the gilt Roman numeral carved into each panel. They are
-carved polychromed wood reliefs in Gothic tracery frames, 896×1200 JPEG.
+All reference images are imported: **the 14 traditional stations**, plus the
+Resurrection as a companion panel — 15 in all, filed by the gilt Roman numeral
+carved into each. They are carved polychromed wood reliefs in Gothic tracery
+frames, 896×1200 JPEG.
+
+The Via Crucis is fourteen stations, and the set is described as fourteen. The
+Resurrection ships with it but is marked a companion rather than a fifteenth
+station ([ADR-0012](docs/adr/0012-the-resurrection-is-a-companion-not-a-station.md)).
 
 Every station folder has its image, its composition notes, and its checklist.
 Station XII has an automated first pass — depth map and a shaded preview are

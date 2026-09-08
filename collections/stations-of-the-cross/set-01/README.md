@@ -1,7 +1,15 @@
 # Stations of the Cross — Set 01
 
-The first Via Crucis series: the 14 traditional stations plus the
-Resurrection, 15 images in all.
+The first Via Crucis series: **the 14 traditional stations**, with the
+Resurrection filed alongside them as a companion panel — 15 images in all.
+
+The Via Crucis is fourteen stations, and that is what this set is. The
+Resurrection is a common addition in modern devotion rather than a fifteenth
+station, so it is marked `"companion": true` in `metadata.json` and is not
+counted in `traditional_count`. Its folder is still named
+`15-the-resurrection`, because item ids here are permanent — that 15 is an id,
+not a station number. See
+[ADR-0012](../../../docs/adr/0012-the-resurrection-is-a-companion-not-a-station.md).
 
 ## Source
 
@@ -10,8 +18,9 @@ or copied from an existing carving. Collected in the Google Photos album
 <https://photos.app.goo.gl/EdYMHR8VvGUWcRZD9> (unreachable from the environment
 this repository was built in) and uploaded here directly.
 
-All 15 images are imported, 896×1200 JPEG. Each was filed by reading the gilt
-Roman numeral carved into its frame.
+All 15 images are imported, 896×1200 JPEG — the fourteen stations and the
+companion panel. Each was filed by reading the gilt Roman numeral carved into
+its frame.
 
 ## Style
 
@@ -50,6 +59,7 @@ into `stations/<NN-slug>/reference/`, and updates `metadata.json`.
 ## Stations
 
 Each links to its folder — reference image, notes, and working files.
+The fourteen stations are I–XIV; XV is the companion panel.
 
 | # | Station | Português | Panel |
 |---|---|---|---|
@@ -67,7 +77,10 @@ Each links to its folder — reference image, notes, and working files.
 | XII | [Jesus dies on the cross](stations/12-jesus-dies-on-the-cross/) | Jesus morre na cruz | <img src="stations/12-jesus-dies-on-the-cross/reference/12-jesus-dies-on-the-cross.jpg" width="90" alt=""> |
 | XIII | [Jesus is taken down from the cross](stations/13-jesus-is-taken-down-from-the-cross/) | Jesus é descido da cruz | <img src="stations/13-jesus-is-taken-down-from-the-cross/reference/13-jesus-is-taken-down-from-the-cross.jpg" width="90" alt=""> |
 | XIV | [Jesus is laid in the tomb](stations/14-jesus-is-laid-in-the-tomb/) | Jesus é sepultado | <img src="stations/14-jesus-is-laid-in-the-tomb/reference/14-jesus-is-laid-in-the-tomb.jpg" width="90" alt=""> |
-| XV | [The Resurrection of the Lord](stations/15-the-resurrection/) | A Ressurreição do Senhor | <img src="stations/15-the-resurrection/reference/15-the-resurrection.jpg" width="90" alt=""> |
+| XV * | [The Resurrection of the Lord](stations/15-the-resurrection/) | A Ressurreição do Senhor | <img src="stations/15-the-resurrection/reference/15-the-resurrection.jpg" width="90" alt=""> |
+
+\* Companion panel, not one of the fourteen stations — see
+[ADR-0012](../../../docs/adr/0012-the-resurrection-is-a-companion-not-a-station.md).
 
 ## Rights
 
