@@ -26,7 +26,11 @@ Break these and the tooling breaks with them.
    links. Add and deprecate; do not rename.
 3. **A set is numbered or it is not**, declared by `"numbered"`. Numbered sets
    have fixed items and numbered folders; open catalogues accumulate pieces
-   with slug-only folders. See ADR-0002.
+   with slug-only folders. See ADR-0002. A numbered set may carry a
+   **companion** — an item that ships with the set but is outside its canonical
+   sequence, like the Resurrection beside the fourteen stations. It keeps a
+   number so ingest can match files to it, and is excluded from
+   `traditional_count`. See ADR-0012.
 4. **Provenance is recorded before distribution.** Every set has a `rights`
    block. A reference from someone else's carving carries their rights; a
    generated one does not. See ADR-0003.
